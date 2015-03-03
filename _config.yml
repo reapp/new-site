@@ -3,20 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Reapp
 subtitle:
 description:
-author: John Doe
-email:
+author:
+email: nate@reapp.io
 language:
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://reapp.io
 root: /
 permalink: :year/:month/:day/:title/
 tag_dir: tags
-archive_dir: archives
+archive_dir: blog
 category_dir: categories
 code_dir: downloads/code
 permalink_defaults:
