@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta charset="utf-8">
 
-  <title><% if (title){ %><%= title %> | <% } %> Reapp - Hybrid apps, fast</title>
+  <title><% if (page.title){ %><%= page.title %> | <% } %> Reapp - Hybrid apps, fast</title>
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <link rel="icon" href="<%- theme.favicon %>">
   <%- css('css/style') %>
