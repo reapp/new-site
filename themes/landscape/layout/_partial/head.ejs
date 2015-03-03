@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title><% if (title){ %><%= title %> | <% } %> Reapp - Hybrid apps, fast</title>
+  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <link rel="icon" href="<%- theme.favicon %>">
+  <%- css('css/style') %>
+  <%- feed_tag('atom.xml') %>
+  <%- partial('google-analytics') %>
+</head>
