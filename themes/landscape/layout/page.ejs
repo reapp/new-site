@@ -6,7 +6,10 @@
     </div>
 
     <div class="col-xs-12 col-md-7 first-xs pad-right">
-      <%- partial('_partial/article', {post: page, index: false}) %>
+      <h2><%= page.title %></h2>
+      <%- page.content %>
     </div>
   </div>
 </div>
+
+<script src="/js/nav.js"></script>
