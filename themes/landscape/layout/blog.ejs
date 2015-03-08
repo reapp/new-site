@@ -2,9 +2,10 @@
 
 <div class="page">
   <div class="row">
-    <div class="col-xs-12 col-md-7 first-xs pad-right">
-      <h2><%= page.title %></h2>
-      <%- page.content %>
+    <div class="col-xs-12">
+      <% site.posts.each(function(post, i){ %>
+        <%- partial('_partial/archive-post', {post: post, index: i}) %>
+      <% }) %>
     </div>
   </div>
 </div>

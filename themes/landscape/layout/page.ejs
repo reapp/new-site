@@ -1,17 +1,9 @@
 <%- partial('_partial/header') %>
-<%- partial('_partial/docs_nav') %>
 
 <div class="page">
   <div class="row">
-    <div id="nav" class="col-xs-12 col-md-5">
-      <!-- nav.js will generate this -->
-    </div>
-
-    <div class="col-xs-12 col-md-7 first-xs pad-right">
-      <h2><%= page.title %></h2>
+    <div class="col-xs-12">
       <%- page.content %>
     </div>
   </div>
 </div>
-
-<script src="/js/nav.js"></script>

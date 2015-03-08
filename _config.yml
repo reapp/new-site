@@ -34,7 +34,7 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 highlight:
-  enable: true
+  enable: false
   line_number: true
   tab_replace:
 
