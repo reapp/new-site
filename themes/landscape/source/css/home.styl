@@ -136,12 +136,13 @@
 }
 
 .feature {
-  padding: 1rem 2rem;
-  text-align: center;
+  padding: .5rem 2rem;
+  flex-flow: row;
 }
 
-.feature h4 {
-  font-weight: bold;
+.feature h3 {
+  font-weight: normal;
+  margin: 1rem 0;
 }
 
 .feature a {
@@ -157,6 +158,28 @@
 .feature p {
   opacity: 0.8;
   margin-bottom: 0;
+}
+
+.secondary {
+  width: 40%;
+  flex-shrink: 0;
+}
+
+.secondary, .main {
+  flex-flow: column;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 15px;
+  transition: all 300ms ease-in;
+}
+
+.icon.logo {
+  width: 140px;
+  height: 140px;
 }
 
 .tryit {

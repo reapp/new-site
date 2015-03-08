@@ -5,7 +5,7 @@
 .color-orange { color: #e15914; }
 .color-red { color: #d62746; }
 
-bg = #32dd5c
+bg = #21d551
 
 #hero-bg, .header, .footer, #step-1 {
   background-color: bg;
@@ -16,7 +16,7 @@ bg = #32dd5c
   padding-bottom: 3rem;
   position: relative;
   color: #fff;
-  background-image: linear-gradient(-45deg, #0e3c33, bg);
+  background-image: linear-gradient(-45deg, darken(bg, 30), bg);
 }
 
 body, input {
@@ -450,19 +450,6 @@ h4 {
 
 .row.lifted {
   margin-top: -2rem;
-}
-
-.icon {
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  margin-bottom: 15px;
-  transition: all 300ms ease-in;
-}
-
-.icon.logo {
-  width: 100px;
-  height: 100px;
 }
 
 .section:hover .icon {

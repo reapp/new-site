@@ -108,6 +108,7 @@ abbr {
 }
 
 table {
+  margin: 2rem 0;
   width: 100%;
   border-collapse: collapse;
   font-size: 1.2rem;
@@ -118,9 +119,9 @@ table.center td, table.center th {
 }
 
 td, th {
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-right: 1px solid rgba(0,0,0,0.05);
-  padding: 4px;
+  border-bottom: 1px solid rgba(0,0,0,0.02);
+  border-right: 1px solid rgba(0,0,0,0.02);
+  padding: 4px 12px;
 }
 
 td:last-child, th:last-child {
@@ -132,16 +133,21 @@ tr:last-child td {
 }
 
 th {
-  opacity: 0.7;
-  background: rgba(0,0,0,0.08);
+  color: #777;
+  font-weight: normal;
 }
 
 td.category {
   font-size: 1rem;
 }
 
-th.bold, td.bold {
-  opacity: 1;
+th.bold {
+  color: #000;
+  font-weight: bold;
+}
+
+table .bold {
+  background: #f8fbd7;
 }
 
 table td.category {
@@ -150,7 +156,7 @@ table td.category {
 }
 
 table td.winner {
-  color: rgba(0,255,0,1);
+  color: rgba(0,200,0,1);
 }
 
 table td.loser {
@@ -158,8 +164,8 @@ table td.loser {
 }
 
 .sub-category {
+  color: #999;
   font-size: 1rem;
-  background: rgba(0,0,0,0.03);
 }
 
 .sub-category td {
