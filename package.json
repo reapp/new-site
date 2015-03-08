@@ -15,7 +15,7 @@
     "hexo-generator-archive": "^0.1.1",
     "hexo-generator-index": "^0.1.0",
     "hexo-renderer-ejs": "^0.1.0",
-    "hexo-renderer-marked": "^0.2.5",
+    "hexo-renderer-markdown-it": "^2.1.3",
     "hexo-renderer-stylus": "^0.2.2",
     "hexo-server": "^0.1.2",
     "rimraf": "^2.3.1"
