@@ -163,6 +163,10 @@
   margin-bottom: 0;
 }
 
+.feature a p {
+  color: #666;
+}
+
 .secondary {
   width: 40%;
   flex-shrink: 0;
@@ -202,9 +206,9 @@
 
 .toggle {
   position: absolute;
-  top: 260px;
-  left: 370px;
-  z-index: 10;
+  top: 180px;
+  left: 375px;
+  z-index: 0;
 }
 
 .toggle button {
@@ -284,11 +288,23 @@
 
 .section:nth-child(2n+1) {
   position: relative;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
   border-right: none;
   border-left: none;
 }
 
-#ui-kit .icon {
-  opacity: 0.2;
+#ui-kit {
+  .feature {
+    padding: 2rem;
+  }
+
+  .icon {
+    opacity: 0.2;
+  }
+}
+
+#what-is-it {
+  .icon {
+    margin-bottom: 0;
+  }
 }
