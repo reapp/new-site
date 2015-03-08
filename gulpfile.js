@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var rimraf = require('rimraf');
 var wrap = require('gulp-wrap');
 var concat = require('gulp-concat');
 
@@ -20,42 +19,45 @@ var packages = [
 
 var src = {
   start: '../reapp/README.md',
-  ui: '../reapp-ui/docs/*',
+
+  // docs
+  components: '../reapp-ui/docs/components/*',
+  views: '../reapp-ui/docs/views/*',
   modules: packages.map(function(name) {
     return '../reapp-' + name + '/README.md';
   })
 };
 
-gulp.task('clean', function(cb) {
-  return rimraf(buildDir, cb);
-});
-
 
 // PAGES
 
-gulp.task('modules', ['clean'], function() {
+gulp.task('modules', function() {
   return move('modules');
 });
 
-gulp.task('ui', ['clean'], function() {
-  return move('ui');
+gulp.task('components', function() {
+  return move('components');
 });
 
-gulp.task('start', ['clean'], function() {
-  return move('start');
+gulp.task('views', function() {
+  return move('views');
 });
 
-function move(name) {
+gulp.task('start', function() {
+  return move('start', 'start');
+});
+
+function move(name, layout) {
   return gulp
     .src(src[name], { base: '../' })
     .pipe(concat(name+ '.md'))
-    .pipe(wrap(header(name)))
+    .pipe(wrap(header(name, layout || 'docs')))
     .pipe(gulp.dest(outDir));
 }
 
-function header(name) {
+function header(name, layout) {
   return [
-    'layout: docs',
+    'layout: ' + layout,
     'title: ' + name,
     '---',
     '<%= contents %>'
@@ -67,7 +69,8 @@ function header(name) {
 gulp.task('watch', function() {
   gulp.watch([src.modules], ['modules']);
   gulp.watch([src.start], ['start']);
-  gulp.watch([src.ui], ['ui']);
+  gulp.watch([src.components], ['components']);
+  gulp.watch([src.views], ['views']);
 });
 
-gulp.task('default', ['modules', 'ui', 'start']);
+gulp.task('default', ['modules', 'components', 'views', 'start']);

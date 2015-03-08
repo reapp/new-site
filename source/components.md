@@ -1,5 +1,5 @@
 layout: docs
-title: ui
+title: components
 ---
 ### Badge
 
@@ -86,13 +86,43 @@ propTypes: {
 ```
 ### Card
 
-Unfinished, will be used for tinder-style swipe cards.
+**In Progress**
+
+Unfinished, will be used for both regular and tinder-style swipe cards.
 
 Props:
 ```
 propTypes: {
   title: React.PropTypes.string,
   children: React.PropTypes.node
+}
+```
+### Chat
+
+**In Progress**
+
+Contains a list of ChatItems for use in messaging interfaces.
+
+Props
+```
+propTypes: {
+  itemProps: React.PropTypes.object,
+  wrap: React.PropTypes.bool
+}
+```
+### ChatItem
+
+**In Progress**
+
+A chat item for use in messaging interfaces.
+
+Props:
+```
+propTypes: {
+  name: React.PropTypes.string,
+  date: React.PropTypes.object,
+  avatar: React.PropTypes.node,
+  own: React.PropTypes.bool
 }
 ```
 ### Checkbox

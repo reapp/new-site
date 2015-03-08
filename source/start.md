@@ -1,4 +1,4 @@
-layout: docs
+layout: start
 title: start
 ---
 ### What is it?
