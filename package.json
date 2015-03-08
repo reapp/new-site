@@ -6,12 +6,18 @@
     "version": "3.0.0"
   },
   "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-markdown": "^1.0.0",
+    "gulp-rimraf": "^0.1.1",
+    "gulp-wrap": "^0.11.0",
     "hexo": "^3.0.0",
     "hexo-generator-archive": "^0.1.1",
     "hexo-generator-index": "^0.1.0",
     "hexo-renderer-ejs": "^0.1.0",
     "hexo-renderer-marked": "^0.2.5",
     "hexo-renderer-stylus": "^0.2.2",
-    "hexo-server": "^0.1.2"
+    "hexo-server": "^0.1.2",
+    "rimraf": "^2.3.1"
   }
 }
