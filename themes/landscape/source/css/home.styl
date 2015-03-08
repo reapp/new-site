@@ -1,3 +1,17 @@
+.home .header {
+  background: none;
+  position: relative;
+  margin-bottom: -70px;
+  z-index: 10;
+
+  .nav.right {
+    display: none;
+  }
+
+  .logo {
+    visibility: hidden;
+  }
+}
 
 #hero-bg {
   position: absolute;
@@ -6,16 +20,6 @@
   right: 0;
   height: 820px;
   z-index: 0;
-}
-
-
-#step-1 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  position: relative;
-  color: #fff;
-
-  background-image: linear-gradient(-45deg, #061a16, #283149);
 }
 
 
@@ -38,7 +42,7 @@
 }
 
 .hero p {
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 1.7em;
   margin-bottom: 1rem;
   padding-right: 2rem;
@@ -156,7 +160,7 @@
   text-indent: 100%;
   white-space: nowrap;
   position: absolute;
-  top: 140px;
+  top: 40px;
   left: 400px;
   overflow: hidden;
   -webkit-transform: rotateZ(8deg);
@@ -226,4 +230,30 @@
 
 #github:hover {
   background: rgba(0,0,0,0.5);
+}
+
+
+.highlight {
+  position: relative;
+  box-shadow: 0 0 120px rgba(0,0,0,0.15);
+}
+
+.highlight h4 {
+  opacity: 1;
+  color: #fff;
+}
+
+.highlight::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(/images/lines.svg);
+  opacity: .02;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
