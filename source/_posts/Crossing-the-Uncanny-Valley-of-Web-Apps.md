@@ -1,5 +1,5 @@
 title: Crossing the Uncanny Valley of Web Apps
-date: 2015-03-02 21:02:22
+date: 2015-03-09 21:02:22
 tags:
 ---
 Hybrid apps are in a unique position today. Any developer paying
@@ -37,24 +37,28 @@ browser arena as of late. Slow to adopt features have made it a pain for
 implementing new technology.
 
 They've been accused of [holding back web standards](http://arstechnica.com/tech-policy/2011/12/is-apple-is-using-patents-to-hurt-open-standards/).
-Flebox can bring the rendering engine to it's knees, contentEditable and Shadow DOM
-don't work properly. [Pointer Events](https://news.ycombinator.com/item?id=9106511)
-were flat out rejected.
+Flebox can bring the rendering engine to it's knees, contentEditable, Shadow DOM,
+WebRTC don't work properly. [Pointer Events](https://news.ycombinator.com/item?id=9106511)
+is held up ([more reading here](https://code.google.com/p/chromium/issues/detail?id=162757)).
+Apple even removed support for the High Resolution Time API in 8.1.
 
-Further, their developer tools are horribly slow. Debugging a JavaScript app
+Then there's the issues with WebViews on iOS. After years of lagging behind
+with a limited non-JIT engine, Apple announced WKWebView's for iOS 8. Finally,
+a fast JIT for homescreen/hybrid apps! Only, they never really delivered.
+
+As they stand now there are showstopper bugs that have gone unfixed for three minor
+releases. Not only that, but in 8.3, developers are reporting even the speed gains
+we desperately needed with WKWebViews have now regressed!
+
+Finally, their developer tools are horribly slow. Debugging a JavaScript app
 brings Safari to it's knees, requiring restarts after every Timeline recording
 and poor support for Source Maps.
 
-Finally, there's the issues with webviews on iOS. After years of lagging behind
-with a limited non-JIT engine, Apple announced WKWebView's for iOS 8. Only,
-they never really delivered them. As they stand now there are showstopper bugs
-that have gone unfixed for three minor releases. Not only that, but in 8.3,
-developers are reporting the speed gains with WKWebViews have gone completely!
-
-But beyond the feature-set, there's a bigger issue. Browsers need competition.
-We need to learn from the lessons of history and get Apple to open up their
+But beyond the feature-set, this all stems from a bigger issue. Browsers need competition.
+We need to learn from the history. Competition is necessary, and we don't want another
+IE6 nightmare. Let's collectively start pushing apple Apple to open up their
 platform. I'm positive the Google and Mozilla teams would be happy to ship their
-own engines on iOS.
+own engines on iOS, and we'd all be better off for it.
 
 ### Native API's should be a priority for browsers
 
