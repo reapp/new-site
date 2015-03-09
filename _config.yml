@@ -85,3 +85,9 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# Feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
