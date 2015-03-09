@@ -1,5 +1,4 @@
 title: Crossing the Uncanny Valley of Web Apps
-date: 2015-03-09 21:02:22
 tags:
 ---
 Hybrid apps are in a unique position today. Any developer paying
@@ -36,10 +35,14 @@ It's hard to argue that Safari hasn't fallen behind dramatically in the
 browser arena as of late. Slow to adopt features have made it a pain for
 implementing new technology.
 
+There are some huge bugs in the current WebViews in Safari like JavaScript painting
+being delayed during scrolls that prevents proper touch event handling, and
+touch inputs being offset completely.
+
 They've been accused of [holding back web standards](http://arstechnica.com/tech-policy/2011/12/is-apple-is-using-patents-to-hurt-open-standards/).
 Flebox can bring the rendering engine to it's knees, contentEditable, Shadow DOM,
-WebRTC don't work properly. [Pointer Events](https://news.ycombinator.com/item?id=9106511)
-is held up ([more reading here](https://code.google.com/p/chromium/issues/detail?id=162757)).
+WebRTC don't work properly. [Pointer Events](http://timkadlec.com/2015/02/apples-web/)
+is held up (more reading [here](https://news.ycombinator.com/item?id=9106511) and [here](https://code.google.com/p/chromium/issues/detail?id=162757)).
 Apple even removed support for the High Resolution Time API in 8.1.
 
 Then there's the issues with WebViews on iOS. After years of lagging behind
@@ -69,9 +72,8 @@ them implemented.
 
 We can hope that ChomeOS (and FirefoxOS) will help in this regard.
 
-But one good example is the lack of access for the iOS text selection interface.
-You have no even system to tie into for when a user selects text.
-Wan't to remove the overlays programatically? No chance.
+One good example is the lack of access for the iOS text selection interface.
+Want to react to user selections of text programatically? [Good luck](http://stackoverflow.com/questions/11300590/how-to-captured-selected-text-range-in-ios-after-text-selection-expansion).
 
 ### Gesture interaction needs some love
 
@@ -81,3 +83,14 @@ This could even be as simple as better libraries meant for handling these sort o
 things. Things like [interact.js](http://interactjs.io/) and [hammer.js](http://hammerjs.github.io/)
 make attempts, and there are rumors that React Native is working on a JS solution
 for their own purposes that could be backported to the web.
+
+### All that to say...
+
+This post may seem like a long rant at the big companies on how they're handling
+the web. In my mind, it's impossible to pin a motive on a lot of what they do,
+there are certainly people pushing in different directions even the small teams
+working on the web at each company.
+
+All this really is, is another attempt to bring more light to the current status.
+We all want the web to get better. We want it to be faster, more flexible, and
+to be full featured enough to write apps comfortably across all platforms.
