@@ -1,7 +1,7 @@
 
 .color-blue { color: #4abae6; }
 .color-green { color: #56be53; }
-.color-yellow, .install, .nav a:hover { color: #f8f062; }
+.color-yellow, .nav a:hover, .nav a { color: #f8f062; }
 .color-orange { color: #e15914; }
 .color-red { color: #d62746; }
 
@@ -393,14 +393,21 @@ h4 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
-  width: 46px;
+  margin: 0 30px 0 0;
+  padding-left: 52px;
   height: 42px;
-  text-indent: 100%;
   overflow: hidden;
-  background-size: cover;
+  background-size: contain;
   background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  color: #fff;
   transition: opacity 300ms ease-in;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.icon-mini:hover {
+  color: #fff;
 }
 
 .twitter {
@@ -492,8 +499,11 @@ h4 {
 
 .nav a {
   padding: 0 2.5rem 0 0;
-  color: #fff;
   font-size: 1.1rem;
+}
+
+.nav a:hover {
+  color: #fff;
 }
 
 .nav a.active, .sub-nav a.active {
