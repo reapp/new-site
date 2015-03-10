@@ -1,3 +1,7 @@
+.logo {
+  position: relative;
+}
+
 .home {
   #github {
     display: none;
@@ -29,15 +33,9 @@
   }
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 62em) {
   .logo {
     margin: auto;
-  }
-
-  .home {
-    .nav {
-      margin: 15px auto;
-    }
   }
 }
 
@@ -73,7 +71,6 @@
   font-size: 2rem;
   line-height: 1.7em;
   margin: 0 0 1rem;
-  padding-right: 2rem;
   color: #fff;
 }
 
@@ -156,6 +153,7 @@
 
 .row-features .feature {
   flex-flow: row;
+  -webkit-flex-flow: row;
 }
 
 .feature {
@@ -188,11 +186,11 @@
 
 .secondary {
   width: 30%;
-  flex-shrink: 0;
 }
 
 .secondary, .main {
   flex-flow: column;
+  -webkit-flex-flow: column;
 }
 
 .icon {
@@ -204,6 +202,7 @@
 }
 
 .icon.logo {
+  padding: 0;
   width: 120px;
   height: 100px;
 }
@@ -324,10 +323,6 @@
   }
 }
 
-.logo {
-  transform: translate3d(-10px,0,0);
-}
-
 #mark {
   position: absolute;
   width: 30px;
@@ -338,6 +333,7 @@
 .example {
   margin: -220px -125px -180px;
   transform: scale(0.5);
+  -webkit-transform: scale(0.5);
   width: 500px;
   height: 500px;
   position: absolute;
