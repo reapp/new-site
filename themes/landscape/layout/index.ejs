@@ -2,8 +2,10 @@
   <div class="spiro"></div>
   <div class="row hero">
     <div class="hero-first pad center-xs start-md col-sm-12 col-md-6">
-      <h1 class="logo"><a href="/">reapp</a></h1>
-      <img id="mark" src="images/mark.svg" />
+      <h1 class="logo">
+        <a href="/">reapp</a>
+        <img id="mark" src="images/mark.svg" />
+      </h1>
 
       <p>
         Reapp is a new way to build apps
@@ -63,25 +65,26 @@
         Try it live
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="row hide-sm hide-md hide-lg">
-      <div class="col-xs-12 pad">
-        <a class="button" href="http://kitchen.reapp.io">Kitchen Sink Demo</a>
-        <a class="button" href="http://hn.reapp.io">Hacker News Demo</a>
+<div class="section hide-sm hide-md hide-lg">
+  <div class="row">
+    <div class="col-xs-12 pad">
+      <a class="button" href="http://kitchen.reapp.io">Kitchen Sink Demo</a>
+      <a class="button" href="http://hn.reapp.io">Hacker News Demo</a>
 
-        <span class="note">
-          Demos run best when saved to homescreen so swipes work correctly.
-        </span>
-      </div>
+      <span class="note">
+        Demos run best when saved to homescreen so swipes work correctly.
+      </span>
     </div>
   </div>
 </div>
 
-<div id="what-is-it" class="motto section has-title row-features">
+<div id="what-is-it" class="motto section row-features">
   <div class="row">
-    <h2 class="section-title">What is it?</h2>
     <div class="feature col-xs-12 col-sm-8">
-      <div class="secondary">
+      <div class="secondary hide-xs">
         <img class="icon logo" src="/images/react-logo.svg" />
       </div>
       <div class="main">
@@ -90,6 +93,8 @@
           A set of components for beautiful interfaces
           on any platform. Optimized for mobile and fully customizable.
         </p>
+
+        <img class="example hide-xs show-md" src="/images/screen-components.png" />
       </div>
     </div>
   </div>
@@ -102,8 +107,15 @@
           Everything you need to build apps from day one, from animations
           to routing, requests to data management.
         </p>
+
+        <pre class="code-example hide-xs show-md">
+          <code>import Component from 'reapp-component';
+import Request from 'reapp-request';
+import reducer from 'reapp-reducer';
+import UI from 'reapp-ui';</code>
+        </pre>
       </div>
-      <div class="secondary">
+      <div class="secondary hide-xs">
         <img class="icon logo" src="/images/npm-logo.svg" />
       </div>
     </div>
@@ -111,14 +123,13 @@
 
   <div class="row">
     <div class="feature col-xs-12 col-sm-8">
-      <div class="secondary">
+      <div class="secondary hide-xs">
         <img class="icon logo" src="/images/webpack.svg" />
       </div>
       <div class="main">
         <h3>Webpack Build System</h3>
         <p>
-          Spend no time configuring your build system. All the features
-          of the future today with
+          Spend no time configuring your builds. The future today with
           <a href="https://webpack.github.io">Webpack</a> and
           <a href="https://babeljs.io">Babel</a>.
         </p>
@@ -126,69 +137,83 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row lesser">
     <div class="feature col-xs-12 col-sm-8 col-sm-offset-4">
       <div class="main">
         <h3>Command Line Interface</h3>
         <p>
-          Create and edit apps instantly without refreshing.
-          Build them to the web or Cordova in seconds.
+          Create, edit apps without refreshing, build them to the web or Cordova.
         </p>
       </div>
-      <div class="secondary">
+      <div class="secondary hide-xs">
         <img class="icon logo" src="/images/commandline.svg" />
       </div>
     </div>
   </div>
 </div>
 
-<div id="examples" class="section has-title emphasize hide-xs">
+<div id="ui-kit" class="section has-title center-titles">
   <div class="row">
-    <h2 class="section-title bg-green">Example</h2>
+    <h2 class="section-title">User Interface</h2>
 
-    <div class="col-xs-12 col-sm-6">
-      <pre class="highlight"><code>import React from 'react';
-import { NestedViewList, View, List } from 'reapp-ui/all';
+    <div class="col col-xs-12 col-sm-8 col-sm-offset-2 emphasize lighten center-xs">
+      <p>
+        The Reapp user interface is the most powerful around.
+        Customize every piece of it from colors to styles.
+        Add custom animations, or change our ours entirely.
+      </p>
+    </div>
+  </div>
 
-export default React.createClass({
-  render() {
-    return
-      &lt;NestedViewList&gt;
-        &lt;View title="Hot Articles"&gt;
-          &lt;List wrap&gt;
-            {articlesArray.map(a =&gt; a.title)}
-          &lt;/List&gt;
-        &lt;/View&gt;
-
-        &lt;View title="Other"&gt;
-          &lt;p&gt;Second view contents&lt;/p&gt;
-        &lt;/View&gt;
-      &lt;/ViewList&gt;
-  }
-});</code></pre>
+  <div class="row">
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/radar.svg" />
+      <h4>Animations</h4>
+      <p>
+        Dynamic &amp; fully interactive JavaScript-powered animations.
+      </p>
     </div>
 
-    <div class="col-xs-12 col-sm-6 pad">
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/connections.svg" />
+      <h4>Styles</h4>
       <p>
-        ViewLists handle Views from animation to interaction.
+        JavaScript + Flexbox. Composable, dynamic, with a declarative interface.
       </p>
+    </div>
 
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/color.svg" />
+      <h4>Themes</h4>
       <p>
-        The NestedViewList uses a parallax animation and
-        allows you to swipe sideways between views.
+        Constants, styles and animations. Mix and match them all to make
+        your theme.
       </p>
+    </div>
 
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/layers.svg" />
+      <h4>Views</h4>
       <p>
-        Reapp has NestedViewList and DottedViewList, but you
-        change them on the fly just by updating props.
+        Views, ViewLists, even nested ViewLists.
+        Build your own!
       </p>
+    </div>
 
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/boxes.svg" />
+      <h4>Components</h4>
       <p>
-        Lists will automatically handle arrays of items when you
-        use the wrap prop.
+        Load individually for optimal load &amp; build times.
       </p>
+    </div>
 
-      <a class="button" href="/docs.html">See more components</a>
+    <div class="feature col-xs-12 col-md-4">
+      <img class="icon" src="/images/icons/centralized.svg" />
+      <h4>Mixins</h4>
+      <p>
+        Use all our animation and styling mixins externally.
+      </p>
     </div>
   </div>
 </div>
@@ -325,68 +350,53 @@ export default React.createClass({
   </div>
 </div>
 
-<div id="ui-kit" class="section has-title center-titles">
+<div id="examples" class="section has-title emphasize hide-xs">
   <div class="row">
-    <h2 class="section-title">User Interface</h2>
+    <h2 class="section-title bg-green">Example</h2>
 
-    <div class="col col-xs-12 col-sm-8 col-sm-offset-2 emphasize lighten center-xs">
-      <p>
-        The Reapp user interface is the most powerful around.
-        Customize every piece of it from colors to styles.
-        Add custom animations, or change our ours entirely.
-      </p>
-    </div>
-  </div>
+    <div class="col-xs-12 col-sm-6">
+      <pre class="highlight"><code>import React from 'react';
+import { NestedViewList, View, List } from 'reapp-ui/all';
 
-  <div class="row">
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/radar.svg" />
-      <h4>Animations</h4>
-      <p>
-        Dynamic &amp; fully interactive JavaScript-powered animations.
-      </p>
-    </div>
+export default React.createClass({
+  render() {
+    return
+      &lt;NestedViewList&gt;
+        &lt;View title="Hot Articles"&gt;
+          &lt;List wrap&gt;
+            {articlesArray.map(a =&gt; a.title)}
+          &lt;/List&gt;
+        &lt;/View&gt;
 
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/connections.svg" />
-      <h4>Styles</h4>
-      <p>
-        JavaScript + Flexbox. Composable, dynamic, with a declarative interface.
-      </p>
+        &lt;View title="Other"&gt;
+          &lt;p&gt;Second view contents&lt;/p&gt;
+        &lt;/View&gt;
+      &lt;/ViewList&gt;
+  }
+});</code></pre>
     </div>
 
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/color.svg" />
-      <h4>Themes</h4>
+    <div class="col-xs-12 col-sm-6 pad">
       <p>
-        Constants, styles and animations. Mix and match them all to make
-        your theme.
+        ViewLists handle Views from animation to interaction.
       </p>
-    </div>
 
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/layers.svg" />
-      <h4>Views</h4>
       <p>
-        Views, ViewLists, even nested ViewLists.
-        Build your own!
+        The NestedViewList uses a parallax animation and
+        allows you to swipe sideways between views.
       </p>
-    </div>
 
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/boxes.svg" />
-      <h4>Components</h4>
       <p>
-        Load individually for optimal load &amp; build times.
+        Reapp has NestedViewList and DottedViewList, but you
+        change them on the fly just by updating props.
       </p>
-    </div>
 
-    <div class="feature col-xs-12 col-md-4">
-      <img class="icon" src="/images/icons/centralized.svg" />
-      <h4>Mixins</h4>
       <p>
-        Use all our animation and styling mixins externally.
+        Lists will automatically handle arrays of items when you
+        use the wrap prop.
       </p>
+
+      <a class="button" href="/docs.html">See more components</a>
     </div>
   </div>
 </div>
