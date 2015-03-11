@@ -1,38 +1,40 @@
 title: "Simplify Flux with Immutable.js and Fynx"
 tags:
 ---
-I'll be honest. While it only took me a couple weeks to be comfortable with React,
-but quite a bit longer to do so with Flux. The diagrams, large UPPER_CASE objects,
-the terminology... I knew it was powerful, but I wasn't going to use it until it was absolutely necessary.
+It's not easy getting into Flux. The diagrams, upper case object keys, the mixins,
+and all the terminology. It's powerful, but for someone new to React it's a lot to take in.
 
 Which is fine. Flux is really meant to solve problems for "big" apps.
-When your UI is handling multiple events and transforming complex data. So, for some time
-I just avoided it.
+When your UI is handling multiple events and transforming chunks of data.
+
+In this article we'll explain how we got to using Fynx, and then show some example
+code similar to how we used in in our [Hacker News app](https://github.com/reapp/hacker-news-app).
 
 ### Prelude
 
-After a month of hacking, my app was ready.  I needed to fetch multiple things, put them together
-in non-simple ways, and handle a variety of actions.
-So, I looked at others' code, read more into Flux, and scoured the
-libraries available.
+Nowadays, beyond rolling your own, there's a ton of libraries for Flux. From
+[Fluxxor](http://fluxxor.com) to [Reflux](https://github.com/spoike/refluxjs) to
+[Flummox](https://github.com/acdlite/flummox), each brings something unique.
 
-Nowadays, there's so many implementation out there, but at the time there were
-pretty much three choices: roll your own, use [Fluxxor](http://fluxxor.com), or use [Reflux](https://github.com/spoike/refluxjs).
+At the time we were building our app Fluxxor seemed the best documented and supported.
+But, it was still verbose. After a week, out of a desperate want to reduce all the boilerplate
+we were writing, we extracted [a library on top of it](https://github.com/natew/Brawndo).
+It was flexible, and it simplified things. But, now we were stuck with another dependency.
 
-At the time Fluxxor seemed the best documented and supported.
-After a week, out of a desperate want to simplify all the code I was writing,
-I ended up making [a library on top of it](https://github.com/natew/Brawndo).
-It was flexible, and it simplified things. I was happy.
+Then, came [Fynx](https://github.com/foss-haas/fynx).
 
-Then, I found [Fynx](https://github.com/foss-haas/fynx).
+See, around the same time as Flux was announced, we'd been reading into [Om](https://github.com/omcljs/om), [Omniscient](https://github.com/omniscientjs/omniscient)
+and the recently released [Immutable.js](https://github.com/facebook/immutable-js).
+Immutable structures are awesome, and cursors seemed awesomely simple.
+But, you still want to coordinate your actions somehow.
 
-See, around the same time as Flux was announced, I had been reading into Om and the recently released Immutable.js.  Immutable structures seemed awesome, and cursors where awesomely simple. But, now that I understood it, I still wanted to use Flux for coordinating actions.
-
-With Fynx, I got just that. Despite it's awkward ASCII diagram, it actually reduced Flux conceptually to me to a single thing: actions. How? Well, first, forget what you know about Flux.
+With Fynx, we got just that, and nothing more.
+Despite it's awkward ASCII diagram, it actually reduced Flux conceptually to a single thing: actions.
+How? Lets take a look.
 
 ### Stores
 
-Here's your entire store.js file, with Fynx:
+Well, really just a store. Here's your entire store.js file, with Fynx:
 
     import { createCursorStore } from 'fynx';
     import { fromJS } from 'immutable';
@@ -42,15 +44,15 @@ Here's your entire store.js file, with Fynx:
       dogs: {}
     });
 
-That's it, just one store! Use it's keys as you would normal Flux stores. There's no store methods, no waitFor, just a single cursor.
+That's all. Use it's keys as you would normal Flux stores. There's no store methods, no waitFor, just a single cursor.
 
 ### Actions
 
-The power with Fynx, is in the actions. Our actions.js:
+The power of Fynx is in its actions. Our actions.js:
 
     import { createAsyncActions } from 'fynx';
 
-    let Actions = createAsyncActions([
+    var Actions = createAsyncActions([
       'loadDogs'
     ]);
 
@@ -83,7 +85,7 @@ And then, we can make our dogActions.js:
     }
 
     function getDogAPI(id) {
-      let data = {
+      var data = {
         1: { id: 1, breed: 'Jack Russell' },
         2: { id: 2, breed: 'Shih Tzu' },
         3: { id: 3, breed: 'Pitbull' },
@@ -99,7 +101,7 @@ Some nice things about this:
 
 ### Linking it to React
 
-In our top level Dogs class, let's grab our store and pass it down. We can also grab the store at any level of our app just by importing it.
+In our top level Dogs class, lets grab our store and pass it down. We can also grab the store at any level of our app just by importing it.
 
     import store from './store';
     import Dog from './Dog';
@@ -116,11 +118,11 @@ In our top level Dogs class, let's grab our store and pass it down. We can also 
       });
     });
 
-And let's say in our Dog component, we can either respond to data simply:
+And lets say in our Dog component, we can either respond to data simply:
 
     this.props.data.set('name', 'Scruffy');
 
-And our store will update, along with our UI. But, this isn't Flux. Let's say we add an action in our dogActions file that reverses our dog list. After we've added the action name in our actions.js we can do this:
+And our store will update, along with our UI. But, this isn't Flux. Lets say we add an action in our dogActions file that reverses our dog list. After we've added the action name in our actions.js we can do this:
 
     Action.reverseDogs.listen(() =>
       store().update('dogs', dogs => dogs.reverse())
@@ -148,8 +150,6 @@ In [Reapp](https://reapp.io), I use [a decorator](https://github.com/reapp/reapp
 
 ### Example code
 
-Want to see an app using this in production? Check out our
-[HN app repo](https://github.com/reapp/hacker-news-app)
-and download the
-[iOS app](https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8).
+Want to see an app using this in production? Download it in the
+[iOS app store](https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8).
 
