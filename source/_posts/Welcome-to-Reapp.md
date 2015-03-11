@@ -24,7 +24,6 @@ We already have an exciting full-length walthrough coming out on [Scotch.io](htt
 shortly. We have some great [example](https://github.com/reapp/hacker-news-app) [apps](https://github.com/reapp/kitchen-sink)
 you can look at for inspiration in structuring your apps.
 
-Finally, we have some big client using Reapp, that will launch their apps in less
-time than ever before.
+Finally, we have some big news on companies using Reapp coming soon.
 
-So keep posted here, exciting times are ahead.
+Subscribe to our feed to keep posted, exciting times are ahead.
