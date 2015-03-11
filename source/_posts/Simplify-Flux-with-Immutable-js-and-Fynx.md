@@ -1,4 +1,5 @@
 title: "Simplify Flux with Immutable.js and Fynx"
+date: 2015-03-11 12:05:28
 tags:
 ---
 It's not easy getting into Flux. The diagrams, upper case object keys, the mixins,
@@ -148,8 +149,8 @@ The final step is to optimize our components shouldComponentUpdate now that we h
 
 In [Reapp](https://reapp.io), I use [a decorator](https://github.com/reapp/reapp-component) so I don't have to manually mix it in on every class.
 
-### Example code
+### In action
 
 Want to see an app using this in production? Download it in the
-[iOS app store](https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8).
-
+[iOS app store](https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8)
+and check out [the code on GitHub](https://github.com/reapp/hacker-news-app).

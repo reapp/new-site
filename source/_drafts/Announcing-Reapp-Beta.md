@@ -1,4 +1,4 @@
-title: "Announcing Reapp Beta and Reapp UI 0.11"
+title: "Announcing Reapp Beta"
 tags:
 ---
 Today I'm incredibly proud to announce the exit of alpha for Reapp UI,
