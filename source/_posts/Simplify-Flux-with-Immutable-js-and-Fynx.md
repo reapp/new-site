@@ -2,9 +2,9 @@ title: "Simplify Flux with Immutable.js and Fynx"
 date: 2015-03-11 12:05:28
 tags:
 ---
-It's not exactly easy getting into Flux. There's a lot of terminology, and a lot of power.
-Not to mention all the different implementations. It's useful, but for someone new to
-React it's a lot to take in.
+It's not exactly easy getting into Flux. There's a lot of terminology, and a lot of syntax.
+Not to mention all the different libraries. While it's undoubtedly very useful,
+for someone new to React it's a lot to take in.
 
 Which is fine. Flux is really meant to solve problems for "big" apps.
 When your UI is handling multiple events and transforming chunks of data.

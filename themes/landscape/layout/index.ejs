@@ -12,10 +12,6 @@
         with React and JavaScript.
       </p>
 
-      <div class="home">
-        <%- partial('_partial/header', { active: false }) %>
-      </div>
-
       <div class="install code">
         <div class="first">
           npm install -g reapp
@@ -26,6 +22,10 @@
         <div class="extra-line">
           cd myapp && reapp run
         </div>
+      </div>
+
+      <div class="home">
+        <%- partial('_partial/header', { active: false }) %>
       </div>
 
       <div class="row justify-right">
@@ -66,6 +66,13 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="banner">
+  <% var newPost = site.posts.last(); %>
+  <% if (newPost) { %>
+    Latest from the Blog: <a href="<%= url_for(newPost.path) %>"><%= newPost.title %></a>
+  <% } %>
 </div>
 
 <div class="section hide-sm hide-md hide-lg">

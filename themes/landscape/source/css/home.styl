@@ -9,8 +9,21 @@
 
   .header {
     background: none;
-    margin: 0;
+    margin: 0 0 2rem 0;
     z-index: 10;
+
+    a {
+      padding: 18px;
+      font-size: 22px !important;
+      font-weight: normal;
+      border-radius: 3px;
+      margin: 0 10px 0 0;
+
+      &:first-child {
+        font-weight: bold;
+      background: rgba(255,255,255,0.2)
+      }
+    }
   }
 
   .nav {
@@ -74,7 +87,7 @@
 .hero p {
   font-size: 2rem;
   line-height: 1.7em;
-  margin: 0 0 1rem;
+  margin: 0;
   color: #fff;
 }
 
@@ -85,19 +98,25 @@
 }
 
 .install {
-  font-size: 22px;
+  font-size: 20px;
   padding: 1rem;
   margin: 1rem auto 2rem 0;
   line-height: 2.2rem;
   color: #a4f0a8;
 }
 
-.install .extra-line {
-  font-weight: normal;
-  font-size: 18px;
-  opacity: 0;
-  transition: all 100ms ease-in;
-  opacity: 0.7;
+.install {
+  &:hover .extra-line {
+    opacity: 1;
+  }
+
+  .extra-line {
+    font-weight: normal;
+    font-size: 18px;
+    opacity: 0;
+    transition: all 100ms ease-in;
+    opacity: 0.5;
+  }
 }
 
 .hero-second, .hero-first {
@@ -342,7 +361,7 @@
 
 #mark {
   position: absolute;
-  width: 30px;
+  width: 28px;
   left: 205px;
   top: 0;
 }
@@ -389,4 +408,15 @@
 
 .row-features .row:first-child {
   border: none;
+}
+
+.banner {
+  background: darken(bg, 50%);
+  text-align: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+
+  a {
+    color: #fff;
+  }
 }
