@@ -12,6 +12,10 @@
         with React and JavaScript.
       </p>
 
+      <div class="home">
+        <%- partial('_partial/header', { active: false }) %>
+      </div>
+
       <div class="install code">
         <div class="first">
           npm install -g reapp
@@ -22,10 +26,6 @@
         <div class="extra-line">
           cd myapp && reapp run
         </div>
-      </div>
-
-      <div class="home">
-        <%- partial('_partial/header', { active: false }) %>
       </div>
 
       <div class="row justify-right">
