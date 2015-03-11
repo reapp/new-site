@@ -9,7 +9,12 @@ In that short time, our in house team has built three app store
 applications. We've integrated with Cordova, and then integrated that with
 Amazon Login, Firebase, and a whole host of other endpoints.
 
-Work on the Material UI theme has started.
+We've added lots of new components:
+
+- Gallery
+- Chat
+- Swiper (Swipe for options on lists)
+- Drawer ViewLists
 
 If you're curious as to more of what's new since launch, here's the full
 changelog:
