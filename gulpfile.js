@@ -17,22 +17,32 @@ var packages = [
   'raf-batching'
 ];
 
+var core = [
+  'animations',
+  'styles',
+  'themes',
+  'viewlists'
+];
+
 var src = {
   start: '../reapp/README.md',
 
   // docs
   components: '../reapp-ui/docs/components/*',
   views: '../reapp-ui/docs/views/*',
-  modules: packages.map(function(name) {
+  packages: packages.map(function(name) {
     return '../reapp-' + name + '/README.md';
+  }),
+  core: core.map(function(name) {
+    return '../reapp-ui/docs/core/'+name+'.md';
   })
 };
 
 
 // PAGES
 
-gulp.task('modules', function() {
-  return move('modules');
+gulp.task('packages', function() {
+  return move('packages');
 });
 
 gulp.task('components', function() {
@@ -47,12 +57,24 @@ gulp.task('start', function() {
   return move('start', 'start');
 });
 
+gulp.task('core', function() {
+  return core.forEach(function(name, i) {
+    gulp
+      .src(src.core[i], { base: '../' })
+      .pipe(concat(name + '.md'))
+      .pipe(wrap(header(name, 'docs')))
+      .pipe(gulp.dest(outDir + '/docs'));
+  });
+});
+
 function move(name, layout) {
+  layout = layout || 'docs';
+
   return gulp
     .src(src[name], { base: '../' })
     .pipe(concat(name+ '.md'))
-    .pipe(wrap(header(name, layout || 'docs')))
-    .pipe(gulp.dest(outDir));
+    .pipe(wrap(header(name, layout)))
+    .pipe(gulp.dest(outDir + '/' + layout));
 }
 
 function header(name, layout) {
@@ -67,10 +89,10 @@ function header(name, layout) {
 // WATCH
 
 gulp.task('watch', function() {
-  gulp.watch([src.modules], ['modules']);
+  gulp.watch([src.packages], ['packages']);
   gulp.watch([src.start], ['start']);
   gulp.watch([src.components], ['components']);
   gulp.watch([src.views], ['views']);
 });
 
-gulp.task('default', ['modules', 'components', 'views', 'start']);
+gulp.task('default', ['packages', 'components', 'views', 'start']);
