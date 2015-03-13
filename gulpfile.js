@@ -61,9 +61,9 @@ gulp.task('core', function() {
   return core.forEach(function(name, i) {
     gulp
       .src(src.core[i], { base: '../' })
-      .pipe(concat(name + '.md'))
+      .pipe(concat('docs-' + name + '.md'))
       .pipe(wrap(header(name, 'docs')))
-      .pipe(gulp.dest(outDir + '/docs'));
+      .pipe(gulp.dest(outDir));
   });
 });
 
@@ -72,9 +72,9 @@ function move(name, layout) {
 
   return gulp
     .src(src[name], { base: '../' })
-    .pipe(concat(name+ '.md'))
+    .pipe(concat(name + '.md'))
     .pipe(wrap(header(name, layout)))
-    .pipe(gulp.dest(outDir + '/' + layout));
+    .pipe(gulp.dest(outDir));
 }
 
 function header(name, layout) {
@@ -93,6 +93,7 @@ gulp.task('watch', function() {
   gulp.watch([src.start], ['start']);
   gulp.watch([src.components], ['components']);
   gulp.watch([src.views], ['views']);
+  gulp.watch([src.core], ['core']);
 });
 
-gulp.task('default', ['packages', 'components', 'views', 'start']);
+gulp.task('default', ['packages', 'components', 'views', 'start', 'core']);

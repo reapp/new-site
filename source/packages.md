@@ -1,5 +1,5 @@
 layout: docs
-title: modules
+title: packages
 ---
 ## reapp-ui
 
