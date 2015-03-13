@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <nav>
+        <a <% if (active === 'ui') { %>class="active"<% } %> href="/ui.html">User Interface</a>
         <a <% if (active === 'packages') { %>class="active"<% } %> href="/packages.html">Packages</a>
 
         <hr />
@@ -13,7 +14,6 @@
 
         <span class="core">
           <a <% if (active === 'animations') { %>class="active"<% } %> href="/docs-animations.html">Animations</a>
-          <a <% if (active === 'styles') { %>class="active"<% } %> href="/docs-styles.html">Styles</a>
           <a <% if (active === 'themes') { %>class="active"<% } %> href="/docs-themes.html">Themes</a>
           <a <% if (active === 'viewlists') { %>class="active"<% } %> href="/docs-viewlists.html">ViewLists</a>
         </span>

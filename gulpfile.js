@@ -5,16 +5,14 @@ var concat = require('gulp-concat');
 var buildDir = './gen';
 var outDir = './source';
 var packages = [
-  'ui',
-  'pack',
-  'server',
   'routes',
   'component',
   'platform',
   'request',
   'reducer',
   'object-assign',
-  'raf-batching'
+  'pack',
+  'server'
 ];
 
 var core = [
@@ -30,6 +28,7 @@ var src = {
   // docs
   components: '../reapp-ui/docs/components/*',
   views: '../reapp-ui/docs/views/*',
+  ui: '../reapp-ui/README.md',
   packages: packages.map(function(name) {
     return '../reapp-' + name + '/README.md';
   }),
@@ -51,6 +50,10 @@ gulp.task('components', function() {
 
 gulp.task('views', function() {
   return move('views');
+});
+
+gulp.task('ui', function() {
+  return move('ui');
 });
 
 gulp.task('start', function() {
@@ -93,7 +96,8 @@ gulp.task('watch', function() {
   gulp.watch([src.start], ['start']);
   gulp.watch([src.components], ['components']);
   gulp.watch([src.views], ['views']);
+  gulp.watch([src.ui], ['ui']);
   gulp.watch([src.core], ['core']);
 });
 
-gulp.task('default', ['packages', 'components', 'views', 'start', 'core']);
+gulp.task('default', ['packages', 'components', 'views', 'start', 'core', 'ui']);
