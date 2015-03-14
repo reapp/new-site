@@ -1,6 +1,9 @@
 (function() {
 
   var headers = document.querySelectorAll('.page h2, .page h3');
+  [].forEach.call(headers, function(header) {
+    header.setAttribute('id', header.innerHTML.replace(/\s+/g, '-').toLowerCase());
+  })
   var navUl = makeList(headers);
 
   var nav = document.getElementById('nav');
