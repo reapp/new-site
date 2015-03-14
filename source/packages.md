@@ -165,7 +165,7 @@ isomorphic request module. For now there are a few options including
 Superagent, request, and cujojs/rest.
 
 Superagent works nicelly but doesn't have promise support, but there
-is a good library superagent-bluebird-proimise. So for now we just extend
+is a good library superagent-bluebird-promise. So for now we just extend
 that.
 
 The others also either bundle their own promise library or have separate
