@@ -71,7 +71,8 @@
 <div class="banner">
   <% var newPost = site.posts.last(); %>
   <% if (newPost) { %>
-    Latest from the Blog: <a href="<%= url_for(newPost.path) %>"><%= newPost.title %></a>
+    Latest from the Blog:
+    <a href="<%= url_for(newPost.path) %>"><%= newPost.title %></a>
   <% } %>
 </div>
 
