@@ -20,7 +20,7 @@ That's where Transferrable Objects come in handy. They are supported by all
 modern browsers and you can [read more on them in this post](http://updates.html5rocks.com/2011/12/Transferable-Objects-Lightning-Fast).
 Basically, they let you pass data by reference (without having to copy it).
 
-### Better parallel JavaScript
+### Parallel JavaScript
 
 Web Workers with their limitations don't quite get us all the way there.
 What we'd have ideally is some form of [shared immutable structures](https://github.com/sebmarkbage/ecmascript-immutable-data-structures).
@@ -29,15 +29,16 @@ That, along with another up and comined idea of [UI Workers]() would finally
 get us to avoid the dreaded slowdowns you see when doing CPU-intensive work
 while trying to animate a user interface.
 
-### Apple needs to improve Safari and open iOS to 3rd party browsers
+### Apple & Safari
 
 It's hard to argue that Safari hasn't fallen behind dramatically in the
 browser arena as of late. Slow to adopt features have made it a pain for
 implementing new technology.
 
-There are some huge bugs in the current WebViews in Safari like JavaScript painting
-being delayed during scrolls that prevents proper touch event handling, and
-touch inputs being offset completely.
+There are some huge bugs in the current WebViews in Safari. JavaScript painting
+being delayed during scrolls that prevents proper touch event handling,
+touch inputs being offset during scrolls, lack of control over simple things like
+text selection.
 
 They've been accused of [holding back web standards](http://arstechnica.com/tech-policy/2011/12/is-apple-is-using-patents-to-hurt-open-standards/).
 Flebox can bring the rendering engine to it's knees, contentEditable, Shadow DOM,
@@ -63,7 +64,7 @@ IE6 nightmare. Let's collectively start pushing apple Apple to open up their
 platform. I'm positive the Google and Mozilla teams would be happy to ship their
 own engines on iOS, and we'd all be better off for it.
 
-### Native API's should be a priority for browsers
+### Native API's
 
 I'll say something that may not be a very popular opinion: I think Cordova does
 an amazing job with their plugin platform. Installing is a breeze, and their goals
@@ -75,22 +76,16 @@ We can hope that ChomeOS (and FirefoxOS) will help in this regard.
 One good example is the lack of access for the iOS text selection interface.
 Want to react to user selections of text programatically? [Good luck](http://stackoverflow.com/questions/11300590/how-to-captured-selected-text-range-in-ios-after-text-selection-expansion).
 
-### Gesture interaction needs some love
+### Pointer Events
 
-This ties into the ongoing Pointer Events controversy,
-but the mobile needs better ways of handling gestures and multi-touch interactions.
+Mobile needs better ways of handling gestures and multi-touch interactions.
 This could even be as simple as better libraries meant for handling these sort of
 things. Things like [interact.js](http://interactjs.io/) and [hammer.js](http://hammerjs.github.io/)
 make attempts, and there are rumors that React Native is working on a JS solution
 for their own purposes that could be backported to the web.
 
-### All that to say...
+### Animations
 
-This post may seem like a long rant at the big companies on how they're handling
-the web. In my mind, it's impossible to pin a motive on a lot of what they do,
-there are certainly people pushing in different directions even the small teams
-working on the web at each company.
+### What's Happening Now
 
-All this really is, is another attempt to bring more light to the current status.
-We all want the web to get better. We want it to be faster, more flexible, and
-to be full featured enough to write apps comfortably across all platforms.
+https://extensiblewebmanifesto.org/
