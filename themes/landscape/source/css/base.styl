@@ -5,9 +5,9 @@
 .color-orange { color: #e15914; }
 .color-red { color: #d62746; }
 
-bg1 = #1CAD5F
-bg = #217997
-bg2 = #2B3581
+bg1 = #11AD7F
+bg = #09B7B9
+bg2 = #1C51A4
 
 #hero-bg, .header, .footer, #step-1 {
   background-color: bg;
@@ -19,7 +19,16 @@ bg2 = #2B3581
   padding-bottom: 3rem;
   position: relative;
   color: #fff;
-  background-image: linear-gradient(20deg, bg1 20%, bg 60%, bg2 100%);
+  background-color: bg;
+  background-image: linear-gradient(-20deg, bg1 20%, bg 60%, bg2 100%);
+}
+
+.install {
+  font-size: 20px;
+  padding: 1rem;
+  margin: 1rem auto 2rem 0;
+  line-height: 2rem;
+  color: lighten(bg, 70%);
 }
 
 .banner {
@@ -203,7 +212,7 @@ h2 span:hover {
 }
 
 .buttons a {
-  opacity: 0.5;
+  opacity: 0.8;
   font-size: 17px;
 }
 

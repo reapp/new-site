@@ -18,10 +18,16 @@
       font-weight: normal;
       border-radius: 3px;
       margin: 0 5px 0 0;
+      border: 2px solid rgba(255,255,255,0.2);
+      transition: all 200ms ease-in;
+
+      &:hover {
+        border-color: #fff;
+        color: #fff;
+      }
 
       &:first-child {
         font-weight: bold;
-        background: rgba(255,255,255,0.2)
       }
     }
   }
@@ -95,14 +101,6 @@
   font-size: 16px;
   color: yellow;
   line-height: 1.2rem;
-}
-
-.install {
-  font-size: 20px;
-  padding: 1rem;
-  margin: 1rem auto 2rem 0;
-  line-height: 2.2rem;
-  color: #a4f0a8;
 }
 
 .install {
