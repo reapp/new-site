@@ -265,7 +265,28 @@
   }
 }
 
+pad-amt = 2rem
+
+.pad {
+  padding: pad-amt;
+}
+
 @media only screen and (min-width: 48em) {
+
+  // dont pad on tiny browsers
+  .pad-right {
+    padding-right: pad-amt;
+  }
+
+  .pad-left {
+    padding-left: pad-amt;
+  }
+
+  .pad-top {
+    padding-top: pad-amt;
+  }
+
+
   .col-sm,
   .col-sm-1,
   .col-sm-2,

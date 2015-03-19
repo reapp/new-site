@@ -68,7 +68,7 @@
   </div>
 </div>
 
-<div class="banner">
+<div class="banner hide-xs">
   <% var newPost = site.posts.last(); %>
   <% if (newPost) { %>
     Latest from the Blog:
@@ -327,7 +327,7 @@ export default React.createClass({
           <tr>
             <td class="category">Layout</td>
             <td class="bold winner">Flexbox</td>
-            <td>Block</td>
+            <td>Flex Grid + Block</td>
             <td>Per-Platform</td>
           </tr>
 
@@ -350,20 +350,6 @@ export default React.createClass({
             <td class="bold">JS</td>
             <td>CSS</td>
             <td>Per-Platform</td>
-          </tr>
-
-          <tr>
-            <td class="category">Interactive</td>
-            <td class="bold winner">✓</td>
-            <td class="loser">✘</td>
-            <td class="winner">✓</td>
-          </tr>
-
-          <tr class="sub-category">
-            <td></td>
-            <td>Views</td>
-            <td>Views</td>
-            <td>Views</td>
           </tr>
 
           <tr>
