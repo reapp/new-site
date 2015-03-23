@@ -9,12 +9,12 @@ In that short time, our in house team has built three app store
 applications. We've integrated with Cordova, and then integrated that with
 Amazon Login, Firebase, and a whole host of other endpoints.
 
-We've added lots of new components:
+We've added new components:
 
 - Gallery
-- Chat
-- Swiper (Swipe for options on lists)
-- Drawer ViewLists
+- Chat & ChatItem
+- Swiper (swipe-for-options lists)
+- ViewList Drawer-style slide up behavior
 
 If you're curious as to more of what's new since launch, here's the full
 changelog:
@@ -68,12 +68,14 @@ reapp-ui
 - waitForAnimations lib
 
 reapp-pack
-- need to specify 'platform' key
-- working platform
+- 'platform' key
+- working platforms support
 - babel
 - webworker support
 - newwatchingplugin
 - noerrors with react-hot-loader
+- optimized build times
+- parseModules
 
 reapp-routes
 - cordova fixes for historylocation

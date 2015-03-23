@@ -8,7 +8,7 @@ from
 
 Let's take a quick look
 
-### Web Workers and Transferrable Objects
+### Web Workers & Transferrable Objects
 
 Our first taste of threading in JS came from Web Workers. They gave us
 lightweight threads but with costs. Basically, you can't access the DOM.
@@ -19,6 +19,8 @@ delay when dealing with passing non-trivial amounts of data.
 That's where Transferrable Objects come in handy. They are supported by all
 modern browsers and you can [read more on them in this post](http://updates.html5rocks.com/2011/12/Transferable-Objects-Lightning-Fast).
 Basically, they let you pass data by reference (without having to copy it).
+
+### Service Workers
 
 ### Parallel JavaScript
 
