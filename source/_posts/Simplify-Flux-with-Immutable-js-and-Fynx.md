@@ -127,7 +127,7 @@ And lets say in our Dog component, we can either respond to data simply:
 And our store will update, along with our UI. But, this isn't Flux. Lets say we add an action in our dogActions file that reverses our dog list. After we've added the action name in our actions.js we can do this:
 
     Action.reverseDogs.listen(() =>
-      store().update('dogs', dogs => dogs.reverse())
+      store().update('dogIds', dogs => dogs.reverse())
     );
 
 And anywhere in our React tree we could then call:
