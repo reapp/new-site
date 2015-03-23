@@ -152,6 +152,10 @@ In [Reapp](https://reapp.io), I use [a decorator](https://github.com/reapp/reapp
 
 ### In action
 
-Want to see an app using this in production? Download it in the
+**Update:** Thanks to [snickell](https://github.com/snickell), we have a
+[working demo with this code here](https://github.com/reapp/reapp-dog-example).
+Check it out to see a simple example of this in action!
+
+Want to see an app using this Flux technique in production? Download it in the
 [iOS app store](https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8)
 and check out [the code on GitHub](https://github.com/reapp/hacker-news-app).
