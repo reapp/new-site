@@ -1,5 +1,4 @@
 title: "Announcing reapp-kit: Lowering the barrier to being productive in React"
-date: 2015-03-31 12:05:28
 tags:
 ---
 Reapp launched just over a month ago and we've been overwhelmed by the response.
