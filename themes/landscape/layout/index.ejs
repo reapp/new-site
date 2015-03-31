@@ -57,7 +57,8 @@
         }
 
         function setIframe(sub) {
-          document.getElementById('iframe').setAttribute('src', 'http://'+sub+'.reapp.io/#demo:emulateTouch');
+          var opts = sub === 'kitchen' ? '#demo:emulateTouch' : '';
+          document.getElementById('iframe').setAttribute('src', 'http://'+sub+'.reapp.io/' + opts);
         }
       </script>
 
