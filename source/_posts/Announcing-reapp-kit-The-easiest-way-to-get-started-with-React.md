@@ -15,6 +15,21 @@ we want to keep things moving fast. So today, we're releasing reapp-kit in beta.
 ### What is reapp-kit?
 
 Reapp-kit unifies all the reapp components to make building apps way, way simpler.
+It brings chooses a few things for you, but mostly it brings together the reapp packages.
+
+Included in reapp-kit:
+
+- All of reapp-ui
+- Routes via react-router
+- fetch() polyfill
+- Immutable data for your components
+- Fynx for a simple store and actions
+- Patched React.Component with Immutable optimizations and Reapp Animation support
+- Cordova helpers
+
+Note: For now, these are all bundled as one. In the future we plan to add
+support for customizing which of these pieces you'd like, while still getting all the
+other reapp-kit optimizations.
 
 ### Why
 
