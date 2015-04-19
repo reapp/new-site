@@ -97,7 +97,7 @@ Extra reading:
 
  - WKWebView
    - cordova plugin add https://github.com/Telerik-Verified-Plugins/WKWebView
-   - http://stackoverflow.com/questions/25017933/cordova-how-to-remove-push-notification-on-ios
- - statusTap https://github.com/triceam/cordova-statusTap
- - iTunes screenshots http://stackoverflow.com/questions/25756863/full-resolution-screenshots-for-iphone-6-and-6
- - iOS8 scroll events change http://developer.telerik.com/featured/scroll-event-change-ios-8-big-deal/
+   - [Remove push notifications iOS8](http://stackoverflow.com/questions/25017933/cordova-how-to-remove-push-notification-on-ios)
+ - [statusTap](https://github.com/triceam/cordova-statusTap)
+ - [iTunes screenshots](http://stackoverflow.com/questions/25756863/full-resolution-screenshots-for-iphone-6-and-6)_
+ - [iOS8 scroll events change](http://developer.telerik.com/featured/scroll-event-change-ios-8-big-deal/)
