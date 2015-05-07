@@ -72,7 +72,7 @@ Using Reapp with Cordova is incredibly easy. Here's our steps for setting
 up a workflow that lets you build to XCode in one step:
 
 1. Install cordova cli
-2. `cordova new appname`
+2. `cordova create appname`
 3. Adjust config.xml to your liking
 4. `cordova platform add ios`
 5. Some plugins we use:
