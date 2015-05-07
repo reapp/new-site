@@ -107,7 +107,7 @@ See the index.js for more in-code documentation.
 
 Component is a tiny, no-dependency library designed for top-down applications.
 
- It's essential a factory, that provides two things on it's factories:
+ It's essentially a factory, that provides two things on it's factories:
 
   - Decorators through `addDecorator`
   - Dependency Injection through `addStatics`
@@ -236,7 +236,7 @@ determine options. It includes default configs for development and production th
 
 See `./webpack/config.*.js` for the default config files.
 
-See `./webpack/make.js` for how to builds the webpack config.
+See `./webpack/make.js` for how to build the webpack config.
 
 
 ### Options
