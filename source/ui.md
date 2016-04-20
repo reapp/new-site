@@ -18,7 +18,7 @@ for all platforms. It has a few goals:
 
 ### Usage
 
-The most simple way of using reapp-ui is to load one of our themes, and
+The simplest way of using reapp-ui is to load one of our themes, and
 then import the components you want to use. Here's an example of this;
 
 ```js
@@ -39,10 +39,10 @@ export default React.createClass({
 ```
 
 This will bundle every style for every component in the iOS theme. It's
-simple and easy to get started with. Reapp themes are very powerful though,
-and allow you to customize every piece of them.
+simple and easy to get started with. Reapp themes are very powerful, though,
+and they allow you to customize every aspect of them.
 
-Lets see how they work. If you open the `reapp-ui/themes/ios/theme.js` file
+Let's see how they work. If you open the `reapp-ui/themes/ios/theme.js` file
 you'll see how we load the iOS theme:
 
 ```js
@@ -60,7 +60,7 @@ export default UI.makeTheme();
 ```
 
 As you can see, we're basically loading three different pieces: constants,
-styles, and animations. We're also loading the stylesheets file, which
+styles, and animations. We're also loading the stylesheets file which
 includes our base.css styles that are used to normalize everything.
 
 You could easily override each of these steps by adding in new constants,
@@ -80,10 +80,15 @@ more on how Reapp works, check out:
 
 ### Demos
 
-You can add these demos to your homescreen or emulate mobile on your browser:
+You can add these demos to your home screen or emulate mobile on your browser:
 
 - [kitchen.reapp.io](http://kitchen.reapp.io)
 - [hn.reapp.io](http://hn.reapp.io)
+
+A note on speed: Your apps will run significantly faster when they are built. When running in
+dev mode they are not only checking PropTypes and for a variety of warnings, but they also
+aren't running using requestAnimationFrame which means they tax the CPU a lot more (but in exchange
+are easier to debug).
 
 ### Internal Documentation
 
@@ -112,8 +117,8 @@ You can add these demos to your homescreen or emulate mobile on your browser:
 
 Used to set up reapp-ui.
 
-reapp-ui uses three different things that must be imported at init. These
-things are imported so they can be mixed and matched for use with adapating
+reapp-ui uses three different things that must be imported at initialization. These
+things are imported so they can be mixed and matched for use with adapting
 theme or behavior.
 
 For now it has three relevant methods:
@@ -131,21 +136,21 @@ For now it has three relevant methods:
   take an object with `index`, `step` as keys, an optionally extra keys with more info.
   **See /themes/ios/animations.js for examples.**
 
-To see how you'd make a theme, I'd suggest looking at `/themes/ios/theme.js`. You
+To see how you'd make a theme, we suggest looking at `/themes/ios/theme.js`. You
 can require that file to have the entire iOS theme setup for you automatically.
 
 **component.js**
 
 component is a decorator that is used internally by reapp-ui to make components. It
 was extracted out and is a nice set of mixins that allow the ui components to avoid
-reptitious code.
+repetitious code.
 
-This is an important file to look at before understanding how this library works,
+This is an important file to inspect before understanding how this library works,
 and from there, the Mixins that are used here make the foundation of the UI kit.
 
 #### Contributing
 
-Because Reapp has split itself into a number of modules, you'll probably need to do a little
+Because Reapp is split into a number of modules, you'll probably need to do a little
 more work than usual to contribute. For the UI, the best setup is to do the following:
 
 1. Create a `reapp` folder
@@ -153,15 +158,22 @@ more work than usual to contribute. For the UI, the best setup is to do the foll
 3. Clone this repository
 4. Run `sudo npm link` inside this repository
 5. **Important:** Run `rm -r node_modules/react` in reapp-ui and be sure react isn't duplicated in Webpack build
-6. Run `npm watch` in this directory to start babel compiler
-7. Be sure to edit in `./src` directory only.
-8. Run `sudo npm link reapp-ui` inside the kitchen sink repository
+6. Run `npm run build` in this directory, this will build your reapp-ui for the first time and put it into the ./build folder.
+7. Run `npm run copyAssets` in this directory to copy assets to the babel output directory.
+8. Run `npm run watch` in this directory to start babel compiler. **Note**: Be sure to edit in `./src` directory only.
+9. Run `ln -s $PREFIX/lib/node_modules/reapp-ui/build node_modules/reapp-ui`
+inside the kitchen sink repository. The placeholder `$PREFIX` is the
+[prefix](https://docs.npmjs.com/files/folders#prefix-configuration)
+used for the installation of node. Usually this is `/usr/local`. The command
+`npm config get prefix` can also be used to find the prefix. (The `npm link`
+command will not work here because it will reference the project root instead of
+build output directory.)
 
 This will link your reapp-ui module into your kitchen sink repo. Now you can:
 
-9. Run `reapp run -d` inside kitchen sink
-10. Go to [localhost:3010](http://localhost:3010)
-11. Make edits inside reapp-ui and they will automatically compile into the kitchen sink.
+10. Run `reapp run -d` inside kitchen sink
+11. Go to [localhost:3010](http://localhost:3010)
+12. Make edits inside reapp-ui and they will automatically compile into the kitchen sink.
 
 **Warning:** When running locally you may run into some unique bugs. Because `npm link`
 runs an `npm install`, it will often install multiple versions of React into your
@@ -173,7 +185,7 @@ sub-modules and re-run Webpack.
 ### Credits
 
 Original inspiration was thanks to [Pete Hunt](https://github.com/petehunt)'s [React Mobile Demo](http://petehunt.github.io/react-touch/).
-The [Framework7]() Kitchen Sink was used as reference when building the kitchen sink.
+The [Framework7](http://www.idangero.us/framework7/) Kitchen Sink was used as reference when building the kitchen sink.
 
 SVG Icons included in this repo are originally from [flaticon](http://www.flaticon.com/packs/ios7-set-lined-1)
 and are licensed under [Creative Commons 3.0](http://creativecommons.org/licenses/by/3.0/). If you use them with your project, you must

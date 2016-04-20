@@ -27,7 +27,7 @@ propTypes: {
 **In Progress**
 
 Use at the top level of your app, above any ViewList or View.
-Provides a slideout menu and passes the handle prop down to children.
+Provides a slide-out menu and passes the handle prop down to children.
 
 Props:
 ```
@@ -42,7 +42,7 @@ propTypes: {
 ```
 ### NestedViewList
 
-This is the standard viewlist and for now mimics iOS style swipe from the edge
+This is the standard viewlist and for now mimics the iOS-style swipe from the edge
 views.
 
 Props:
@@ -63,7 +63,7 @@ propTypes: {
 ```
 ### View
 
-The base View class. Give it a `title` property to automatically had a titlebar.
+The base View class. Give it a `title` property to automatically add a titlebar.
 When used inside a ViewList, it will be animated automatically.
 
 Props:

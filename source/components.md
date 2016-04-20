@@ -13,8 +13,7 @@ propTypes: {
 
 ### Badge
 
-A badge is used on lists or over icons and bars, for notifications
-of numbers usually.
+A badge is used on lists or over icons and bars for notifications of numbers usually.
 
 ```
 propTypes: {
@@ -205,7 +204,7 @@ propTypes: {
 
 ### Dots
 
-Dots are the equivalent as used in the homescreen in iOS.
+Dots are the equivalent of those used in the homescreen in iOS.
 Used to track location within a list of views.
 
 ```
@@ -220,8 +219,7 @@ propTypes: {
 
 ### Drawer
 
-A panel that slides in from the side of the screen, and can be dragged
-back out.
+A panel that slides in from the side of the screen, and can be dragged back out.
 
 - `from` which side it comes from.
 - `translate` pass in an object with { x: (number: 0-100) }
@@ -439,7 +437,7 @@ propTypes: {
 
 ### Radio
 
-A standard form radio
+A standard form radio button.
 
 ### SearchBar
 
@@ -467,7 +465,7 @@ One of:
 - `right` content on the right, handles icon animations for you
 - `children` content in the middle.
 
-or just use `children` with a three-arity array.
+or just use `children` with a ternary array.
 
 ```
 propTypes: {

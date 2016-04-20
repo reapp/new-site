@@ -13,7 +13,7 @@ a server and build system.
 
 ### Examples
 
-We have two example apps you can check the source to:
+We have two example apps with full source code:
 
  - [Kitchen Sink](https://github.com/reapp/kitchen-sink) ([demo](http://kitchen.reapp.io))
  - [Hacker News Reader](https://github.com/reapp/hacker-news-app) ([demo](http://hn.reapp.io))
@@ -41,9 +41,9 @@ reapp run
 
 ### CLI Options
 
-The CLI has two main functions that it helps you with. The first is creating new apps.
-For now, it simply makes a bare clone of a repo we keep updated with the current best-practice.
-The goal is eventually to have a variety of baseline repo's to choose from.
+The CLI helps with two main functions. The first is creating new apps.
+For now, it simply makes a bare clone of a repo we keep updated with the current best practices.
+The goal is to eventually have a variety of baseline repos from which to choose.
 
 It also lets you run your app, using [reapp-server](https://github.com/reapp/reapp-server),
 a simple express server that works well with the default app structure.
@@ -52,10 +52,10 @@ CLI Usage:
 ```
 Usage: reapp [command]
 
-  new [name]  creates a directory with a new reapp-starter scaffold
+  new [name]  creates a directory with a new reapp-starter scaffolding
   run         runs a reapp application with express/webpack-dev-server
   build       builds a reapp application to a bundle in ./build
-  debug       use this to for opening issues!
+  debug       use this for opening issues
 ```
 
 The build and run commands take a variety of options to help ease your development, such as:
@@ -67,7 +67,7 @@ Usage: reapp-run [options]
   -p, --port [number]  specify a port [number]
   -h, --host [host]    specify hostname
   -b, --bind [address] specify bind address if different from host
-  -e, --env [env]      specify an enivornment
+  -e, --env [env]      specify an environment
   -t, --tool [tool]    specify a webpack devtool
 ```
 
@@ -81,23 +81,22 @@ Usage: reapp-build [options]
 
 ### Running & Building
 
-Use `reapp run` to server your app locally, by default at [localhost:3010](http://localhost:3010).
+Use `reapp run` to serve your app locally by default at [localhost:3010](http://localhost:3010).
 The `run` command has a few options to help you out:
 
 - `reapp run -d` (debug) to output information on how it's running your app
 - `reapp run -e production` (env=production) to run your app in production mode, which is much faster
-- `reapp run -t source-map` (tool=source-map) to have full sourcemaps rather than the "eval" style sourcemaps we default to
+- `reapp run -t source-map` (tool=source-map) to have full source maps rather than the "eval" style default source maps
 
 You also have the same flags available to build commands.
 
-The `build` command is used once you're ready to deploy your app (to either the web or to cordova). For now,
-we provide two types of builds:
+The `build` command is used once you're ready to deploy your app (to either the web or a device via Cordova). For now, we provide two types of builds:
 
 - `reapp build` by default sets the platform to **web**, for mobile sites.
-- `reapp build ios` targets Cordova ios devices.
+- `reapp build ios` targets Cordova iOS devices.
 
 When you run `reapp build` you'll notice a new `./build` folder where your assets have been copied to.
-For example, a `reapp build ios` will build to `./build/ios`. `reapp build` goes to `./build/web`.
+For example, `reapp build ios` will build to `./build/ios`. `reapp build` goes to `./build/web`.
 
 It will also copy your assets for you. Here's an example of running `reapp build ios`:
 
@@ -107,19 +106,19 @@ It will also copy your assets for you. Here's an example of running `reapp build
 ./assets/ios/index.html => (Webpack inserts CSS/JS references) => ./build/ios/index.html
 ```
 
-This allows a lot of flexibility. You can share assets between builds, or have
+This allows a lot of flexibility. You can share assets between builds or have
 exclusive ones for a platform. Leave an asset in the base `./assets` folder
 and it won't be copied at all, but you can still `require()` it within your app.
 
 A good case for shared assets is your Cordova config.xml. Leave it in `./assets/shared`
-and it'll output for all your builds.
+and it'll create output for all your builds.
 
 [See more on custom builds](#custom-builds).
 
-### Structure of your applications
+### Structure of your application
 
 You can see the exact app that's generated through the [reapp-starter repo](https://github.com/reapp/reapp-starter).
-Only the `/app/app.js` entrypoint and `/assets/web/index.html` is "necessary".
+Only the `/app/app.js` entry point and `/assets/web/index.html` is "necessary".
 For now, it's very simple:
 
 ```
@@ -138,11 +137,10 @@ For now, it's very simple:
 ```
 
 `/app/app.js` is your entry point. Everything in the app folder should be pretty
-self-explanatory. `/assets` contains static assets as explained in the [Running & Building](#running-and-building)
-section. In general, you'll place your assets into `shared` or the specific platform
-subdirectory.
+self-explanatory. `/assets` contains static assets as explained in the [Running & Building](#running-and-building) section. In general, you'll place your assets into
+`shared` or the specific platform subdirectory.
 
-The `/theme` folder is [reapp-ui](https://github.com/reapp/reapp-ui) specific. You can
+The `/theme` folder is [reapp-ui](https://github.com/reapp/reapp-ui)-specific. You can
 find docs for it in the repo, but it also should be pretty easy to understand.
 
 If you place a `build.webpack.js` or `run.webpack.js` in your `/config` dir, the reapp CLI
@@ -152,9 +150,9 @@ To see some example configs, check out the files in the `./config` folder of the
 
 ### Your First App
 
-There are a number of pieces we've included in a reapp. Let's explore a few
-of them in order of when you'll encounter them in your codebase. Think of this
-as a tour of a reapp app, giving an introduction to packages as we encounter them.
+There are a number of pieces we've included in a reapp app. Let's explore a few
+of them in the most likely order of encountering them in your codebase. Think of this
+as a tour of a reapp app, introducing each package as we encounter them.
 
 You can check out the [reapp project on Github](https://github.com/reapp) for more info.
 
@@ -166,7 +164,7 @@ To start, you'll want to open `./package.json`. Notice we have the following pac
 - [reapp-component](https://github.com/reapp/reapp-component) (DI and Factories)
 
 You also have an entry point defined as `app/app.js`. This starts your app.
-The most important part here is the routing. Lets start there.
+The most important part here is the routing. Let's start there.
 
 #### [reapp-routes](https://github.com/reapp/reapp-routes) (Routes generator)
 
@@ -188,8 +186,8 @@ requires your components based on the route tree.
 #### [reapp-ui](https://github.com/reapp/reapp-ui) (UI Kit)
 
 The next theme we require is the `./app/theme.js` file. reapp-ui has it's own
-documentation, but themes are the core of reapp-ui. They have three things they
-need: constants, styles, and animations. You can just use the included iOS theme,
+documentation, but themes are the core of reapp-ui. They need three things:
+constants, styles, and animations. You can just use the included iOS theme,
 but we've included the `./app/theme` folder as an example of how you can easily
 customize themes.
 

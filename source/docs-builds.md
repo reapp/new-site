@@ -3,7 +3,7 @@ title: builds
 ---
 ## Building with Reapp
 
-Building with Reapp is simple and powerful. We offer custom configs,
+Building with Reapp is simple and powerful. We offer custom configs
 and let you target as many platforms as you want.
 
 ### How to build
@@ -14,7 +14,7 @@ The syntax for building looks like this:
 reapp build [platform] [options]
 ```
 
-Where your platform is a single word. By default, `reapp build` will set
+where your platform is a single word. By default, `reapp build` will set
 the platform to `web`. Options are:
 
 ```
@@ -30,10 +30,10 @@ where the default platform is web. Run `reapp build ios` and your files
 will be built to `./build/ios`.
 
 This separation means you can run multiple builds at the same time and
-they wont affect each other.
+they won't affect each other.
 
-Builds also handle assets for you in a well-defined way. Lets look at an
-example assets folder:
+Builds also handle assets for you in a well-defined way. Lets look at a
+sample assets folder:
 
 ```
 /assets
@@ -50,7 +50,7 @@ example assets folder:
 
 In this example we have set up our app for `ios` and `web` builds. When
 our build runs it will use Webpack to compile all the assets, and then it
-will look into `./assets` and copy them over to the build directory. Say
+will look into `./assets` and copy them over to the build directory. If
 we ran `reapp build ios`, we'd get this in our `./build/ios` folder:
 
 ```
@@ -68,8 +68,8 @@ sub-directory in assets.
 
 ### Cordova
 
-Using Reapp with Cordova is incredibly easy. Here's our steps for setting
-up a workflow that lets you build to XCode in one step:
+Using Reapp with Cordova is incredibly easy. Here are the steps for setting
+up a workflow that lets you build to Xcode in one step:
 
 1. Install cordova cli
 2. `cordova create appname`
@@ -90,8 +90,8 @@ up a workflow that lets you build to XCode in one step:
 9. Build using xcode
 10. That's it
 
-From now you on you run the command from step 7 and it will automatically
-build and prepare for XCode.
+From now on, you run the command from step 7 and it will automatically
+build and prepare for Xcode.
 
 Extra reading:
 
