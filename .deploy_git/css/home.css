@@ -1,0 +1,349 @@
+.logo {
+  position: relative;
+}
+.home #github {
+  display: none;
+}
+.home .header {
+  background: none;
+  margin: 2rem 0 0 0;
+  z-index: 10;
+}
+.home .header a {
+  padding: 18px;
+  font-size: 18px !important;
+  font-weight: normal;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: all 200ms ease-in;
+}
+.home .header a:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.home .header a:first-child {
+  font-weight: bold;
+}
+.home .nav {
+  margin: 15px 0;
+  font-weight: bold;
+}
+.home .nav a {
+  font-size: 18px;
+}
+.home .nav.right,
+.home .logo {
+  display: none;
+}
+#hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 820px;
+  z-index: 0;
+}
+.hero {
+  padding: 0;
+  border: none;
+}
+.hero-second {
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+}
+.hero h2 {
+  font-size: 2.9rem;
+  margin: 0 0 1rem 0;
+  font-weight: normal;
+  opacity: 1;
+}
+.hero p {
+  font-size: 30px;
+  line-height: 1.7em;
+  margin: 0 20px 0 0;
+  color: #fff;
+}
+.hero p span {
+  font-size: 16px;
+  color: #ff0;
+  line-height: 1.2rem;
+}
+.install:hover .extra-line {
+  opacity: 1;
+}
+.install .extra-line {
+  font-weight: normal;
+  font-size: 18px;
+  opacity: 0;
+  transition: all 100ms ease-in;
+  opacity: 0.5;
+}
+.hero-second,
+.hero-first {
+  position: relative;
+  z-index: 3;
+}
+.hero-first {
+  padding: 1rem 2rem;
+}
+.screen {
+  box-shadow: 0 0 80px rgba(0,0,0,0.2);
+  margin: -10px 0 0 20px;
+  overflow: hidden;
+  background: #fff;
+  height: 625px;
+  width: 355px;
+  border: none;
+  background: #eee;
+}
+.screen.small {
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  width: 300px;
+  height: 450px;
+}
+.signup {
+  display: none;
+}
+.signup input {
+  min-width: 180px;
+  font-size: 20px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  opacity: 0.7;
+  transition: opacity 300ms ease-in;
+}
+.signup input:focus {
+  opacity: 1;
+}
+.signup button {
+  min-width: 100px;
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  margin: 1px 0;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+  height: 2.8rem;
+}
+#email {
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+.features {
+  margin: 1rem auto 3rem;
+}
+.section.row-features {
+  padding-bottom: 0;
+}
+.row-features .feature {
+  flex-flow: row;
+  -webkit-flex-flow: row;
+}
+.feature {
+  padding: 0.5rem 2rem;
+}
+.feature h3 {
+  font-weight: normal;
+  margin: 1rem 0;
+}
+.feature h4 {
+  font-weight: bold;
+}
+.feature a {
+  padding: 0.5rem;
+  border-radius: 3px;
+  transition: all 0.2s ease-in;
+}
+.feature p {
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+.feature a p {
+  color: #666;
+}
+.secondary {
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  padding: 0 10px;
+}
+.secondary,
+.main {
+  flex-flow: column;
+  -webkit-flex-flow: column;
+}
+.main {
+  padding: 0 10px;
+}
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  transition: all 300ms ease-in;
+}
+.icon.logo {
+  padding: 0;
+  width: 120px;
+  height: 100px;
+}
+.tryit {
+  width: 134px;
+  height: 88px;
+  background: url("/images/tryit.png") no-repeat;
+  background-size: 134px 84px;
+  text-indent: 100%;
+  white-space: nowrap;
+  position: absolute;
+  top: 40px;
+  left: 400px;
+  overflow: hidden;
+  -webkit-transform: rotateZ(8deg);
+  transform: rotateZ(8deg);
+}
+.toggle {
+  position: absolute;
+  top: 180px;
+  left: 375px;
+  z-index: 0;
+}
+.toggle button {
+  background: rgba(0,0,0,0.2);
+  color: rgba(255,255,255,0.5);
+  padding: 1rem 2rem;
+  border: none;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 1px;
+}
+.toggle button:focus {
+  color: #fff;
+}
+#github {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: -50px;
+  z-index: 1000;
+  padding: 0 1em;
+  width: 15em;
+  text-align: center;
+  background-color: #000;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: background-color 0.2s;
+}
+#github:hover {
+  background: rgba(0,0,0,0.5);
+}
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+.has-title {
+  padding-top: 8rem;
+}
+.section-title {
+  position: absolute;
+  top: -4rem;
+  left: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.section:nth-child(2n+1) {
+  position: relative;
+  background: #fbfbfb url("/images/grid.svg");
+}
+#ui-kit .feature {
+  padding: 2rem;
+}
+#what-is-it .feature a {
+  padding: 0;
+}
+#mark {
+  position: absolute;
+  width: 28px;
+  left: 166px;
+  top: 0;
+  transform: scale(0.8);
+}
+.example {
+  margin: -220px -125px -180px;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+}
+.code-example {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 30%;
+}
+.code-example code {
+  margin: 0;
+}
+.row-features h3 {
+  margin: 0 0 0.5rem;
+}
+.row-features .feature {
+  padding: 0;
+}
+.row-features .row {
+  overflow: hidden;
+  padding: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+.row-features .row:first-child {
+  border: none;
+}
+@media only screen and (min-width: 48em) {
+  .intro {
+    padding-right: 6rem;
+  }
+  .hero-first {
+    padding-right: 3rem;
+  }
+  .row.split {
+    width: 50%;
+  }
+  .row-features .row {
+    max-height: 15rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+@media only screen and (max-width: 62em) {
+  #step-1 {
+    padding-top: 2rem;
+  }
+  .install {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .logo {
+    margin: auto;
+    margin-top: 0;
+  }
+  .buttons {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

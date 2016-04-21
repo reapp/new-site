@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title>components |  Reapp - Hybrid apps, fast</title>
+  <meta name="description" content="Alert
+Show an alert banner at the top of the View.
+propTypes: {
+  children: React.PropTypes.node
+}
+
+Badge
+A badge is used on lists or over icons and bars for notifications of numbers usually.
+propType">
+<meta property="og:type" content="website">
+<meta property="og:title" content="components">
+<meta property="og:url" content="http://reapp.io/components.html">
+<meta property="og:site_name" content="Reapp">
+<meta property="og:description" content="Alert
+Show an alert banner at the top of the View.
+propTypes: {
+  children: React.PropTypes.node
+}
+
+Badge
+A badge is used on lists or over icons and bars for notifications of numbers usually.
+propType">
+<meta property="og:updated_time" content="2016-04-21T03:34:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="components">
+<meta name="twitter:description" content="Alert
+Show an alert banner at the top of the View.
+propTypes: {
+  children: React.PropTypes.node
+}
+
+Badge
+A badge is used on lists or over icons and bars for notifications of numbers usually.
+propType">
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" href="/atom.xml" title="Reapp">
+</head>
+<body>
+  <header class="header">
+  <div class="row center-xs start-md">
+    <h1 class="logo"><a href="/">Reapp</a></h1>
+
+    <nav class="nav">
+      <a  href="/start.html">Get Started</a>
+      <a class="active" href="/ui.html">Doc<span class="hide-sm">s</span><span class="hide-xs show-sm">umentation</span></a>
+      <a  href="/blog">Blog</a>
+    </nav>
+
+    <nav class="nav right hide-xs">
+      <a href="https://twitter.com/reapp">Twitter</a>
+      <a href="https://github.com/reapp/reapp" target="_blank">
+        Github
+      </a>
+    </nav>
+  </div>
+</header>
+<div class="sub-nav">
+  <div class="row">
+    <div class="col-xs-12">
+      <nav>
+        <a  href="/ui.html">User Interface</a>
+        <a  href="/packages.html">Packages</a>
+
+        <hr />
+
+        <a class="active" href="/components.html">Components</a>
+        <a  href="/views.html">Views</a>
+
+        <hr />
+
+        <span class="core">
+          <a  href="/docs-animations.html">Animations</a>
+          <!-- <a  href="/docs-styles.html">Styles</a> -->
+          <a  href="/docs-themes.html">Themes</a>
+          <!-- <a  href="/docs-viewlists.html">ViewLists</a> -->
+        </span>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="page">
+  <div class="row">
+    <div id="nav" class="col-xs-12 col-md-5">
+      <!-- nav.js will generate this -->
+    </div>
+
+    <div class="col-xs-12 col-md-7 first-xs pad-right">
+      <h2>Alert</h2>
+<p>Show an alert banner at the top of the View.</p>
+<pre><code>propTypes: {
+  children: React.PropTypes.node
+}
+</code></pre>
+<h2>Badge</h2>
+<p>A badge is used on lists or over icons and bars for notifications of numbers usually.</p>
+<pre><code>propTypes: {
+  children: React.PropTypes.node
+}
+</code></pre>
+<h2>Bar</h2>
+<p>Bars attach to an edge of the screen, as given by position.
+Bars contain icons and text, usually as a header and navigation.
+See TitleBar for a specific usage of a bar designed for View titles.</p>
+<p>A bar will automatically wrap it's children with BarItem, but you can
+manually use BarItem if you'd like to customize them.</p>
+<pre><code>propTypes: {
+  // one of text, icon, icon-text, icon-text-right
+  display: React.PropTypes.string,
+
+  // props to pass to each BarItem child
+  barItemProps: React.PropTypes.object,
+
+  // attach to which side of screen
+  position: React.PropTypes.string,
+
+  // which BarItem to pass active prop
+  activeIndex: React.PropTypes.number,
+
+  // automatically wrap children with BarItem
+  wrap: React.PropTypes.bool
+},
+</code></pre>
+<h2>BarItem</h2>
+<p>An item in the Bar. Can be accessed as Bar.Item</p>
+<ul>
+<li><code>children</code> used for text</li>
+<li><code>icon</code> string or element</li>
+<li><code>display</code>:
+<ul>
+<li>text: Text only</li>
+<li>icon: Icon only</li>
+<li>icon-text: Icon above text</li>
+<li>icon-text-right: Icon left of text</li>
+</ul>
+</li>
+</ul>
+<pre><code>propTypes: {
+  icon: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.element
+  ]),
+  iconProps: React.PropTypes.object,
+  children: React.PropTypes.node,
+  display: React.PropTypes.oneOf([
+    'text', 'icon', 'icon-text', 'icon-text-right'
+  ]),
+  active: React.PropTypes.bool
+}
+</code></pre>
+<h2>Button</h2>
+<p>Buttons are buttons! Can be placed in a ButtonGroup.
+Use onTap to add tap events.</p>
+<pre><code>propTypes: {
+  // pass properties to Icon
+  iconProps: React.PropTypes.object,
+
+  // SVG icon
+  icon: React.PropTypes.element,
+
+  // no visual chrome added
+  chromeless: React.PropTypes.bool,
+
+  // Extend to fit screen when inside View
+  fullscreen: React.PropTypes.bool,
+
+  // Fully rounded corners
+  rounded: React.PropTypes.bool,
+
+  // Filled type button (no borders)
+  filled: React.PropTypes.bool,
+
+  // Color of button
+  color: React.PropTypes.string,
+
+  // Text color
+  textColor: React.PropTypes.string,
+
+  // Disabled look / no tap
+  inactive: React.PropTypes.bool,
+
+  // Props used for special display
+  isInTitleBar: React.PropTypes.bool,
+  isInViewList: React.PropTypes.bool,
+}
+</code></pre>
+<h2>ButtonGroup</h2>
+<p>Also accessible as Button.Group</p>
+<p>A button group manages a list of buttons. Places them together.
+It can pass properties down to the children buttons as well to avoid
+code duplication.</p>
+<pre><code>propTypes: {
+  children: React.PropTypes.node,
+  buttonProps: React.PropTypes.object
+}
+</code></pre>
+<h2>Card</h2>
+<p>Simple Card element.</p>
+<pre><code>propTypes: {
+  title: React.PropTypes.string,
+  children: React.PropTypes.node
+}
+</code></pre>
+<h2>Chat</h2>
+<p>Contains a list of ChatItems for use in messaging interfaces.</p>
+<pre><code>propTypes: {
+  // pass props to ChatItem
+  itemProps: React.PropTypes.object,
+
+  // auto wrap children with ChatItem
+  wrap: React.PropTypes.bool
+},
+</code></pre>
+<h2>ChatItem</h2>
+<p>Also accessible as Chat.Item.  A chat bubble for use in messaging interfaces.</p>
+<pre><code>propTypes: {
+  // Text name for chat bubble
+  name: React.PropTypes.string,
+
+  // Date on chat bubble
+  date: React.PropTypes.string,
+
+  // Image for chat bubble
+  image: React.PropTypes.node,
+
+  // Belongs to user (shown on right side)
+  own: React.PropTypes.bool,
+
+  // No decoration on chat bubble
+  plain: React.PropTypes.bool
+}
+</code></pre>
+<h2>Checkbox</h2>
+<p>Checkbox is used in forms, passes it's props on to an <code>&lt;input type=&quot;checkbox&quot; /&gt;</code>.</p>
+<pre><code>propTypes: {
+  onChange: React.PropTypes.func,
+  checked: React.PropTypes.bool
+}
+</code></pre>
+<h2>Container</h2>
+<p>A row in a flexbox Grid.</p>
+<pre><code>propTypes: {
+  pad: React.PropTypes.bool,
+  col: React.PropTypes.bool,
+
+  // wrap in Block automatically
+  wrap: React.PropTypes.bool
+}
+</code></pre>
+<h2>Dots</h2>
+<p>Dots are the equivalent of those used in the homescreen in iOS.
+Used to track location within a list of views.</p>
+<pre><code>propTypes: {
+  // Total dots
+  total: React.PropTypes.number.isRequired,
+
+  // Index of active dot
+  active: React.PropTypes.number.isRequired
+}
+</code></pre>
+<h2>Drawer</h2>
+<p>A panel that slides in from the side of the screen, and can be dragged back out.</p>
+<ul>
+<li><code>from</code> which side it comes from.</li>
+<li><code>translate</code> pass in an object with { x: (number: 0-100) }</li>
+<li><code>behavior</code> pass in object with translate objects for all the from props</li>
+<li><code>closed</code> toggle open or closed.</li>
+<li><code>touchableProps</code> will be passed down to it's internal touchableArea
+(useful for disabling or changing the area).</li>
+<li><code>onClose</code> calls a callback when closed by used.</li>
+</ul>
+<pre><code>propTypes: {
+  behavior: React.PropTypes.object,
+  translate: React.PropTypes.object,
+  from: React.PropTypes.oneOf([
+    'left', 'right', 'top', 'bottom'
+  ]),
+  touchableProps: React.PropTypes.object,
+  onClose: React.PropTypes.func,
+  open: React.PropTypes.bool,
+  dragger: React.PropTypes.bool,
+  draggerWidth: React.PropTypes.number,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number
+}
+</code></pre>
+<h2>Gallery</h2>
+<p>Displays images in a swipeable gallery.</p>
+<pre><code>propTypes: {
+  images: React.PropTypes.array.isRequired,
+  width: React.PropTypes.number,
+  height: React.PropTypes.number,
+  onClose: React.PropTypes.func,
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object
+}
+</code></pre>
+<h2>Grid</h2>
+<p>Allows you to easily access Container and Block through Grid.Container and
+Grid.Block.</p>
+<h2>Icon</h2>
+<p>We've taken the <a href="http://www.flaticon.com/packs/ios7-set-lined-1" target="_blank" rel="external">flaticon</a>
+set of icons and normalized their names and styling. SVG gives you
+crisp edges in your interface. But, you can also use your own icon set.</p>
+<p>Be sure to include proper CC3 attribution when using these.</p>
+<ul>
+<li><code>size</code> number for width and height.</li>
+<li><code>path</code> path to icon, defaults to the svg kit</li>
+<li><code>isInTitleBar</code> used internally</li>
+<li><code>svgProps</code> to pass to the svg</li>
+</ul>
+<pre><code>propTypes: {
+  // width x height in pixels
+  size: React.PropTypes.number,
+
+  // an SVG file
+  file: React.PropTypes.string,
+
+  // props passed to svg
+  stroke: React.PropTypes.number,
+  shapeRendering: React.PropTypes.string,
+  viewBox: React.PropTypes.string,
+  crisp: React.PropTypes.bool,
+
+  // internal props used for special styles
+  isInTitleBar: React.PropTypes.bool,
+  isInViewList: React.PropTypes.bool
+}
+</code></pre>
+<h2>Input</h2>
+<p>An input, much like HTML input.</p>
+<h2>Label</h2>
+<p>For use in forms.</p>
+<pre><code>propTypes: {
+  title: React.PropTypes.string
+}
+
+</code></pre>
+<h2>List</h2>
+<p>Parent for use with ListItem.
+Also accepts title for auto-adding Title components before.</p>
+<ul>
+<li><code>type</code> so far, just 'inset' is an option</li>
+<li><code>nowrap</code> don't wrap ListItem around components automatically</li>
+</ul>
+<pre><code>propTypes: {
+  // pass props to List.Item
+  itemProps: React.PropTypes.object,
+
+  // List title
+  title: React.PropTypes.node,
+
+  // Automatically wrap children with List.Item
+  wrap: React.PropTypes.bool,
+
+  // Don't add padding
+  nopad: React.PropTypes.bool
+}
+</code></pre>
+<h2>ListItem</h2>
+<p>Accessible as List.Item.
+Takes a variety of properties for constructing lists.</p>
+<pre><code>propTypes: {
+  // displayed in bold at the top
+  title: React.PropTypes.node,
+
+  // aligns to the right of title, for badges, time, etc
+  titleAfter: React.PropTypes.node,
+
+  // lighter sub title
+  titleSub: React.PropTypes.node,
+
+  // place an icon or element before the item
+  before: React.PropTypes.node,
+
+  // place an icon or element after the item
+  after: React.PropTypes.node,
+
+  // wrap an element around the item, good for links
+  wrapper: React.PropTypes.node,
+
+  // show an icon indicating it's linked
+  icon: React.PropTypes.bool,
+
+  // don't add padding
+  nopad: React.PropTypes.bool
+}
+</code></pre>
+<h2>Menu</h2>
+<p>An alert that allows user to confirm, or be prompted for options.</p>
+<ul>
+<li><code>type</code> of 'alert' (just shows ok), <code>prompt</code> or <code>confirm</code> (ok, cancel).</li>
+<li><code>animationDuration</code> ms for animation to run</li>
+</ul>
+<pre><code>propTypes: {
+  type: React.PropTypes.string,
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object,
+  handleConfirm: React.PropTypes.func,
+  handleCancel: React.PropTypes.func,
+  handleClose: React.PropTypes.func
+}
+</code></pre>
+<h2>Modal</h2>
+<p>Displays a modal above current content.</p>
+<pre><code>propTypes: {
+  open: React.PropTypes.bool,
+  type: React.PropTypes.oneOf([
+    'alert', // OK
+    'confirm' // Cancel | OK
+  ]),
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object,
+  onConfirm: React.PropTypes.func,
+  onCancel: React.PropTypes.func,
+  onClose: React.PropTypes.func
+}
+</code></pre>
+<h2>Popover</h2>
+<p>A menu that appears over content, accepts an array of children to
+be used as the menu items.</p>
+<pre><code>propTypes: {
+  // element the popover is pointing towards
+  target: React.PropTypes.object.isRequired,
+
+  // show it as open
+  open: React.PropTypes.bool,
+
+  // pad in px towards edge of strings
+  edgePadding: React.PropTypes.number,
+
+  // size of arrow
+  arrowSize: React.PropTypes.number,
+
+  // after close event
+  onClose: React.PropTypes.func,
+  animationDuration: React.PropTypes.number,
+  animations: React.PropTypes.object
+}
+</code></pre>
+<h2>Radio</h2>
+<p>A standard form radio button.</p>
+<h2>SearchBar</h2>
+<p>A bar that will automatically appear under TitleBars when in a view.
+Contains an input that you can pass props to directly.</p>
+<h2>TextArea</h2>
+<p>A form textarea.</p>
+<h2>Title</h2>
+<p>Accepts children, renders as a title for groups of content in views.</p>
+<h2>TitleBar</h2>
+<p>A special type of bar that is used within views as the title.
+Handles a variety of use cases for positioning content and animations.</p>
+<ul>
+<li><code>width</code> automatically set to window by default</li>
+<li><code>height</code> adjust height from default</li>
+</ul>
+<p>One of:</p>
+<ul>
+<li><code>left</code> content on the left, handles icon animations for you</li>
+<li><code>right</code> content on the right, handles icon animations for you</li>
+<li><code>children</code> content in the middle.</li>
+</ul>
+<p>or just use <code>children</code> with a ternary array.</p>
+<pre><code>propTypes: {
+  width: React.PropTypes.number,
+  height: React.PropTypes.number,
+  left: React.PropTypes.node,
+  right: React.PropTypes.node,
+  transparent: React.PropTypes.bool,
+
+  isInViewList: React.PropTypes.bool,
+
+  // attach to side of screen
+  attach: React.PropTypes.string
+}
+</code></pre>
+<h2>InputArray</h2>
+<p>An array of inputs component for reapp-ui</p>
+<h3>Usage</h3>
+<p>For an array of inputs:</p>
+<pre><code class="javascript">import { React, Reapp, InputArray } from 'reapp-kit';
+export class chooseColor extends React.Component {
+  constructor(props, context) {
+
+    this.styles = {
+      phoneInputContainerStyles: {
+        maxHeight: '120px',
+        overflowY: 'scroll',
+        WebkitOverflowScrolling: 'touch',
+      },
+      phoneInputStyles: {
+        color: &quot;&quot;,
+      }
+    }
+
+    var owner = {};
+    var owner.phoneNumbers = [
+      {number: '3175551234'},
+      {number: '3175559191'},
+      {number: '3175559134'}
+    ];
+
+    var phoneArray = owner.phoneNumbers.map((item, index) =&gt; {
+      return ({
+        defaultValue: item.number,
+        disabled: false,
+        validator: 'phone',
+        type: 'tel',
+      })
+    });
+
+    this.setState({
+      phoneArray: phoneArray,
+    });
+
+  }
+
+  updatePhoneArray(phoneArray) {
+    this.setState({
+      phoneArray: phoneArray,
+    });
+  }
+
+  addPhoneArray(phoneArray) {
+    var addedIndex = phoneArray.length - 1;
+    React.findDOMNode(this.refs.phoneInputArray.refs.inputArrayInputs.refs[phoneArray[addedIndex].inputName]).focus();
+  }
+
+  render(
+    &lt;InputArray ref=&quot;phoneInputArray&quot;
+                inputs={this.state.phoneArray}
+                disabled={false}
+                inputsCb={this.updatePhoneArray}
+                inputContainerStyles={this.styles.phoneInputContainerStyles}
+                inputStyles={this.styles.phoneInputStyles}
+                defaultValidator=&quot;phone&quot;
+                addInputCb={this.addPhoneArray}
+                addInputChromeless={true}
+                addInputIcon={addInputIcon}
+                addInputTextStyles={this.styles.addPhoneInputTextStyles}
+                addInputText=&quot;Add Number&quot;
+                addInputType=&quot;tel&quot; /&gt;
+  );
+}
+</code></pre>
+<h3>API</h3>
+<h4>InputArray(props)</h4>
+<p>Type: React Component</p>
+<p>Basic InputArray input list.</p>
+<h5>props.inputs</h5>
+<p>Type: <code>Array of Objects</code>
+Default: []
+Allowed Keys: <code>defaultValue</code>, <code>disabled</code>, <code>validator</code>, <code>type</code></p>
+<p>Pass in html to be shown for each input array item into the &quot;defaultValue&quot; property.</p>
+<h5>props.disabled</h5>
+<p>Type: <code>Bool</code></p>
+<p>Indicates whether the input array should be disabled or enabled (for read only/editable).</p>
+<h5>props.inputsCb</h5>
+<p>Type: <code>Func</code></p>
+<p>A function to run on the returned input array. This would be a good place to set state for your input array.</p>
+<h5>props.phoneInputContainerStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>An object containing custom styles for the container element of the input array.</p>
+<h5>props.inputStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>An object containing custom styles for the input elements of each item in the input array.</p>
+<h5>props.defaultValidator</h5>
+<p>Type: <code>String</code></p>
+<p>Use a default validation method instead of a seperate validation for each input element.</p>
+<h5>props.addInputCb</h5>
+<p>Type: <code>Function</code></p>
+<p>Callback to perform UI changes once the input array has updated.</p>
+<h5>props.addInputChromeless</h5>
+<p>Type: <code>Bool</code></p>
+<p>Ability to make the input elements chromeless.</p>
+<h5>props.addInputIcon</h5>
+<p>Type: <code>Object</code></p>
+<p>Add an image to the &quot;New Input&quot; button.</p>
+<h5>props.addInputTextStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>Style the &quot;New Input&quot; button.</p>
+<h5>props.addInputType</h5>
+<p>Type: <code>String</code></p>
+<p>Specify a type for the input.</p>
+<h2>Typeahead</h2>
+<p>A type-ahead/autocomplete component for reapp-ui</p>
+<h3>Usage</h3>
+<p>For a Typeahead input:</p>
+<pre><code class="javascript">import { React, Reapp, Typeahead } from 'reapp-kit';
+export class chooseColor extends React.Component {
+  constructor(props, context) {
+
+    this.colors = [
+      { inListElement: '&lt;div&gt;Apricot&lt;/div&gt;', inputDisplayText: 'Apricot', value: 0 },
+      { inListElement: '&lt;div&gt;Beige&lt;/div&gt;', inputDisplayText: 'Beige', value: 1 },
+      { inListElement: '&lt;div&gt;Black&lt;/div&gt;', inputDisplayText: 'Black', value: 2 },
+      { inListElement: '&lt;div&gt;Blonde&lt;/div&gt;', inputDisplayText: 'Blonde', value: 3 },
+      { inListElement: '&lt;div&gt;Blue&lt;/div&gt;', inputDisplayText: 'Blue', value: 4 },
+      { inListElement: '&lt;div&gt;Blue Merle&lt;/div&gt;', inputDisplayText: 'Blue Merle', value: 5 },
+      { inListElement: '&lt;div&gt;Brindle&lt;/div&gt;', inputDisplayText: 'Brindle', value: 6 }
+    ];
+  }
+
+  render(
+    &lt;Typeahead
+      ref=&quot;color&quot;
+      disabled={false}
+      name=&quot;colorTypeahead&quot;
+      placeholder='Color'
+      className=&quot;flex colorTypeahead&quot;
+      inputStyles={this.styles.inputStyles}
+      listStyles={this.styles.colorTypeaheadListStyles}
+      allowCustomValues={true}
+      staticCustomValue={null}
+      defaultValue={this.state.colorActive}
+      customValue=&quot;&quot;
+      options={this.colors}
+      maxVisible={0}
+      onOptionSelected={this.colorSelected}
+      clearOnOptionSelected={false}/&gt;
+  );
+}
+</code></pre>
+<h3>API</h3>
+<h4>Typeahead(props)</h4>
+<p>Type: React Component</p>
+<p>Basic Typeahead input and results list.</p>
+<h5>props.options</h5>
+<p>Type: <code>Array of Objects</code>
+Default: []
+Allowed Keys: <code>inListElement</code>, <code>inputDisplayText</code>, <code>value</code></p>
+<p>Pass in html/jsx to be shown for each list item into the &quot;inListElement&quot; property, pass in what should be shown in the Typeahead input box into the &quot;inputDisplayText&quot; property, and pass in the value that gets sent back into the &quot;value&quot; property of each array element.</p>
+<ul>
+<li>Note: You can pass a single value, an array or an object into the &quot;value&quot; property, and it gets sent as the first parameter of the callback function defined in &quot;onOptionSelected&quot;.</li>
+</ul>
+<h5>props.defaultValue</h5>
+<p>Type: <code>String</code></p>
+<p>A default value used when the component has no value. If it matches any options a option list will show.</p>
+<h5>props.customClasses</h5>
+<p>Type: <code>Object</code></p>
+<p>An object of classes to be applied to the Typeahead input box.</p>
+<h5>props.inputStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>An object of styles to be applied to the Typeahead input box.</p>
+<h5>props.optionStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>An object of styles to be applied to each Typeahead option shown.</p>
+<h5>props.maxVisible</h5>
+<p>Type: <code>Number</code></p>
+<p>Limit the number of options rendered in the results list.</p>
+<h5>props.listStyles</h5>
+<p>Type: <code>Object</code></p>
+<p>An object containing custom styles for the list of elements that is shown in the Typeahead.</p>
+<h5>props.placeholder</h5>
+<p>Type: <code>String</code></p>
+<p>Placeholder text for the Typeahead input.</p>
+<h5>props.onKeyDown</h5>
+<p>Type: <code>Function</code></p>
+<p>Event handler for the <code>keyDown</code> event on the Typeahead input.</p>
+<h5>props.onBlur</h5>
+<p>Type: <code>Function</code></p>
+<p>Event handler for the <code>blur</code> event on the Typeahead input.</p>
+<h5>props.onFocus</h5>
+<p>Type: <code>Function</code></p>
+<p>Event handler for the <code>focus</code> event on the Typeahead input.</p>
+<h5>props.onOptionSelected</h5>
+<p>Type: <code>Function</code></p>
+<p>Event handler triggered whenever a user picks an option.</p>
+<h5>props.clearOnOptionSelected</h5>
+<p>Type: <code>bool</code></p>
+<p>Depict if the Typeahead input box should be cleared when an option is selected.</p>
+<h5>props.disabled</h5>
+<p>Type: <code>bool</code></p>
+<p>Depict if the Typeahead input box should be disabled, and only show default value.</p>
+<h5>props.filterOption</h5>
+<p>Type: <code>String</code> or <code>Function</code></p>
+<p>A function to filter the provided <code>options</code> based on the current input value. For each option, receives <code>(inputValue, option)</code>. If not supplied, defaults to <a href="https://github.com/mattyork/fuzzy" target="_blank" rel="external">fuzzy string matching</a>.</p>
+<p>If provided as a string, it will interpret it as a field name and fuzzy filter on that field of each option object.</p>
+<h5>props.allowCustomValues</h5>
+<p>Type: <code>Boolean</code></p>
+<p>Determines whether to show a custom value such as a static option at the end of the list of options that is always shown.</p>
+<h5>props.staticCustomValue</h5>
+<p>Type: <code>String</code></p>
+<p>Set the default customValue display property.</p>
+<h5>props.inputProps</h5>
+<p>Type: <code>Object</code></p>
+<p>Set any additional props that will be included on the Typeahead input.</p>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/nav.js"></script>
+
+    <footer class="footer">
+    <div class="row">
+      <div class="hide-xs col-sm-2"></div>
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="/start.html">Get Started</a>
+          <a href="/ui.html">Docs</a>
+          <a href="/packages.html">Packages</a>
+        </nav>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="https://github.com/reapp/reapp" target="_blank">Github</a>
+          <a href="https://twitter.com/reapp" target="_blank">Twitter</a>
+        </nav>
+      </div>
+      <div class="hide-xs col-sm-2"></div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <span>Copyright 2016 reapp.</span>
+          <span>Icons from <a href="http://www.flaticon.com">flaticon.com</a> under CC 3.0</span>
+          <span>nate@reapp.io</span>
+          <span>Stewarded by</span>
+          <a href="https://www.levelupdevelopment.com">
+            <img width="25%" height="25%" src="/images/lud-logo.svg" title="Level Up Development LLC" alt="Level Up Development LLC" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="spiro"></div>
+  </footer>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57645827-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script src="/js/highlight.js"></script>
+  <script src="/js/highlight-js.js"></script>
+  <script src="/js/highlight-xml.js"></script>
+  <script>
+    hljs.registerLanguage('js', H_js);
+    hljs.registerLanguage('xml', H_xml);
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
+
+</body>
+</html>

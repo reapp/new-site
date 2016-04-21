@@ -1,7 +1,7 @@
 layout: docs
 title: components
 ---
-### Alert
+## Alert
 
 Show an alert banner at the top of the View.
 
@@ -11,7 +11,7 @@ propTypes: {
 }
 ```
 
-### Badge
+## Badge
 
 A badge is used on lists or over icons and bars for notifications of numbers usually.
 
@@ -20,7 +20,7 @@ propTypes: {
   children: React.PropTypes.node
 }
 ```
-### Bar
+## Bar
 
 Bars attach to an edge of the screen, as given by position.
 Bars contain icons and text, usually as a header and navigation.
@@ -48,7 +48,7 @@ propTypes: {
 },
 ```
 
-### BarItem
+## BarItem
 
 An item in the Bar. Can be accessed as Bar.Item
 
@@ -75,7 +75,7 @@ propTypes: {
 }
 ```
 
-### Button
+## Button
 
 Buttons are buttons! Can be placed in a ButtonGroup.
 Use onTap to add tap events.
@@ -116,7 +116,7 @@ propTypes: {
 ```
 
 
-### ButtonGroup
+## ButtonGroup
 
 Also accessible as Button.Group
 
@@ -130,7 +130,7 @@ propTypes: {
   buttonProps: React.PropTypes.object
 }
 ```
-### Card
+## Card
 
 Simple Card element.
 
@@ -140,7 +140,7 @@ propTypes: {
   children: React.PropTypes.node
 }
 ```
-### Chat
+## Chat
 
 Contains a list of ChatItems for use in messaging interfaces.
 
@@ -154,7 +154,7 @@ propTypes: {
 },
 ```
 
-### ChatItem
+## ChatItem
 
 Also accessible as Chat.Item.  A chat bubble for use in messaging interfaces.
 
@@ -177,7 +177,7 @@ propTypes: {
 }
 ```
 
-### Checkbox
+## Checkbox
 
 Checkbox is used in forms, passes it's props on to an `<input type="checkbox" />`.
 
@@ -188,7 +188,7 @@ propTypes: {
 }
 ```
 
-### Container
+## Container
 
 A row in a flexbox Grid.
 
@@ -202,7 +202,7 @@ propTypes: {
 }
 ```
 
-### Dots
+## Dots
 
 Dots are the equivalent of those used in the homescreen in iOS.
 Used to track location within a list of views.
@@ -217,7 +217,7 @@ propTypes: {
 }
 ```
 
-### Drawer
+## Drawer
 
 A panel that slides in from the side of the screen, and can be dragged back out.
 
@@ -247,7 +247,7 @@ propTypes: {
 }
 ```
 
-### Gallery
+## Gallery
 
 Displays images in a swipeable gallery.
 
@@ -262,12 +262,12 @@ propTypes: {
 }
 ```
 
-### Grid
+## Grid
 
 Allows you to easily access Container and Block through Grid.Container and
 Grid.Block.
 
-### Icon
+## Icon
 We've taken the [flaticon](http://www.flaticon.com/packs/ios7-set-lined-1)
 set of icons and normalized their names and styling. SVG gives you
 crisp edges in your interface. But, you can also use your own icon set.
@@ -299,11 +299,11 @@ propTypes: {
 }
 ```
 
-### Input
+## Input
 
 An input, much like HTML input.
 
-### Label
+## Label
 
 For use in forms.
 
@@ -314,7 +314,7 @@ propTypes: {
 
 ```
 
-### List
+## List
 
 Parent for use with ListItem.
 Also accepts title for auto-adding Title components before.
@@ -339,7 +339,7 @@ propTypes: {
 }
 ```
 
-### ListItem
+## ListItem
 
 Accessible as List.Item.
 Takes a variety of properties for constructing lists.
@@ -372,7 +372,7 @@ propTypes: {
 }
 ```
 
-### Menu
+## Menu
 An alert that allows user to confirm, or be prompted for options.
 
 - `type` of 'alert' (just shows ok), `prompt` or `confirm` (ok, cancel).
@@ -389,7 +389,7 @@ propTypes: {
 }
 ```
 
-### Modal
+## Modal
 
 Displays a modal above current content.
 
@@ -409,7 +409,7 @@ propTypes: {
 ```
 
 
-### Popover
+## Popover
 A menu that appears over content, accepts an array of children to
 be used as the menu items.
 
@@ -435,24 +435,24 @@ propTypes: {
 }
 ```
 
-### Radio
+## Radio
 
 A standard form radio button.
 
-### SearchBar
+## SearchBar
 
 A bar that will automatically appear under TitleBars when in a view.
 Contains an input that you can pass props to directly.
 
-### TextArea
+## TextArea
 
 A form textarea.
 
-### Title
+## Title
 
 Accepts children, renders as a title for groups of content in views.
 
-### TitleBar
+## TitleBar
 
 A special type of bar that is used within views as the title.
 Handles a variety of use cases for positioning content and animations.
@@ -481,3 +481,320 @@ propTypes: {
   attach: React.PropTypes.string
 }
 ```
+
+## InputArray
+
+An array of inputs component for reapp-ui
+
+### Usage
+
+For an array of inputs:
+
+```javascript
+import { React, Reapp, InputArray } from 'reapp-kit';
+export class chooseColor extends React.Component {
+  constructor(props, context) {
+
+    this.styles = {
+      phoneInputContainerStyles: {
+        maxHeight: '120px',
+        overflowY: 'scroll',
+        WebkitOverflowScrolling: 'touch',
+      },
+      phoneInputStyles: {
+        color: "",
+      }
+    }
+
+    var owner = {};
+    var owner.phoneNumbers = [
+      {number: '3175551234'},
+      {number: '3175559191'},
+      {number: '3175559134'}
+    ];
+
+    var phoneArray = owner.phoneNumbers.map((item, index) => {
+      return ({
+        defaultValue: item.number,
+        disabled: false,
+        validator: 'phone',
+        type: 'tel',
+      })
+    });
+
+    this.setState({
+      phoneArray: phoneArray,
+    });
+
+  }
+
+  updatePhoneArray(phoneArray) {
+    this.setState({
+      phoneArray: phoneArray,
+    });
+  }
+
+  addPhoneArray(phoneArray) {
+    var addedIndex = phoneArray.length - 1;
+    React.findDOMNode(this.refs.phoneInputArray.refs.inputArrayInputs.refs[phoneArray[addedIndex].inputName]).focus();
+  }
+
+  render(
+    <InputArray ref="phoneInputArray"
+                inputs={this.state.phoneArray}
+                disabled={false}
+                inputsCb={this.updatePhoneArray}
+                inputContainerStyles={this.styles.phoneInputContainerStyles}
+                inputStyles={this.styles.phoneInputStyles}
+                defaultValidator="phone"
+                addInputCb={this.addPhoneArray}
+                addInputChromeless={true}
+                addInputIcon={addInputIcon}
+                addInputTextStyles={this.styles.addPhoneInputTextStyles}
+                addInputText="Add Number"
+                addInputType="tel" />
+  );
+}
+```
+
+### API
+
+#### InputArray(props)
+
+Type: React Component
+
+Basic InputArray input list.
+
+##### props.inputs
+
+Type: `Array of Objects`
+Default: []
+Allowed Keys: `defaultValue`, `disabled`, `validator`, `type`
+
+Pass in html to be shown for each input array item into the "defaultValue" property.
+
+##### props.disabled
+
+Type: `Bool`
+
+Indicates whether the input array should be disabled or enabled (for read only/editable).
+
+##### props.inputsCb
+
+Type: `Func`
+
+A function to run on the returned input array. This would be a good place to set state for your input array.
+
+##### props.phoneInputContainerStyles
+
+Type: `Object`
+
+An object containing custom styles for the container element of the input array.
+
+##### props.inputStyles
+
+Type: `Object`
+
+An object containing custom styles for the input elements of each item in the input array.
+
+##### props.defaultValidator
+
+Type: `String`
+
+Use a default validation method instead of a seperate validation for each input element.
+
+##### props.addInputCb
+
+Type: `Function`
+
+Callback to perform UI changes once the input array has updated.
+
+##### props.addInputChromeless
+
+Type: `Bool`
+
+Ability to make the input elements chromeless.
+
+##### props.addInputIcon
+
+Type: `Object`
+
+Add an image to the "New Input" button.
+
+##### props.addInputTextStyles
+
+Type: `Object`
+
+Style the "New Input" button.
+
+##### props.addInputType
+
+Type: `String`
+
+Specify a type for the input.
+
+## Typeahead
+
+A type-ahead/autocomplete component for reapp-ui
+
+### Usage
+
+For a Typeahead input:
+
+```javascript
+import { React, Reapp, Typeahead } from 'reapp-kit';
+export class chooseColor extends React.Component {
+  constructor(props, context) {
+
+    this.colors = [
+      { inListElement: '<div>Apricot</div>', inputDisplayText: 'Apricot', value: 0 },
+      { inListElement: '<div>Beige</div>', inputDisplayText: 'Beige', value: 1 },
+      { inListElement: '<div>Black</div>', inputDisplayText: 'Black', value: 2 },
+      { inListElement: '<div>Blonde</div>', inputDisplayText: 'Blonde', value: 3 },
+      { inListElement: '<div>Blue</div>', inputDisplayText: 'Blue', value: 4 },
+      { inListElement: '<div>Blue Merle</div>', inputDisplayText: 'Blue Merle', value: 5 },
+      { inListElement: '<div>Brindle</div>', inputDisplayText: 'Brindle', value: 6 }
+    ];
+  }
+
+  render(
+    <Typeahead
+      ref="color"
+      disabled={false}
+      name="colorTypeahead"
+      placeholder='Color'
+      className="flex colorTypeahead"
+      inputStyles={this.styles.inputStyles}
+      listStyles={this.styles.colorTypeaheadListStyles}
+      allowCustomValues={true}
+      staticCustomValue={null}
+      defaultValue={this.state.colorActive}
+      customValue=""
+      options={this.colors}
+      maxVisible={0}
+      onOptionSelected={this.colorSelected}
+      clearOnOptionSelected={false}/>
+  );
+}
+```
+
+### API
+
+#### Typeahead(props)
+
+Type: React Component
+
+Basic Typeahead input and results list.
+
+##### props.options
+
+Type: `Array of Objects`
+Default: []
+Allowed Keys: `inListElement`, `inputDisplayText`, `value`
+
+Pass in html/jsx to be shown for each list item into the "inListElement" property, pass in what should be shown in the Typeahead input box into the "inputDisplayText" property, and pass in the value that gets sent back into the "value" property of each array element.
+* Note: You can pass a single value, an array or an object into the "value" property, and it gets sent as the first parameter of the callback function defined in "onOptionSelected".
+
+##### props.defaultValue
+
+Type: `String`
+
+A default value used when the component has no value. If it matches any options a option list will show.
+
+##### props.customClasses
+
+Type: `Object`
+
+An object of classes to be applied to the Typeahead input box.
+
+##### props.inputStyles
+
+Type: `Object`
+
+An object of styles to be applied to the Typeahead input box.
+
+##### props.optionStyles
+
+Type: `Object`
+
+An object of styles to be applied to each Typeahead option shown.
+
+##### props.maxVisible
+
+Type: `Number`
+
+Limit the number of options rendered in the results list.
+
+##### props.listStyles
+
+Type: `Object`
+
+An object containing custom styles for the list of elements that is shown in the Typeahead.
+
+##### props.placeholder
+
+Type: `String`
+
+Placeholder text for the Typeahead input.
+
+##### props.onKeyDown
+
+Type: `Function`
+
+Event handler for the `keyDown` event on the Typeahead input.
+
+##### props.onBlur
+
+Type: `Function`
+
+Event handler for the `blur` event on the Typeahead input.
+
+##### props.onFocus
+
+Type: `Function`
+
+Event handler for the `focus` event on the Typeahead input.
+
+##### props.onOptionSelected
+
+Type: `Function`
+
+Event handler triggered whenever a user picks an option.
+
+##### props.clearOnOptionSelected
+
+Type: `bool`
+
+Depict if the Typeahead input box should be cleared when an option is selected.
+
+##### props.disabled
+
+Type: `bool`
+
+Depict if the Typeahead input box should be disabled, and only show default value.
+
+##### props.filterOption
+
+Type: `String` or `Function`
+
+A function to filter the provided `options` based on the current input value. For each option, receives `(inputValue, option)`. If not supplied, defaults to [fuzzy string matching](https://github.com/mattyork/fuzzy).
+
+If provided as a string, it will interpret it as a field name and fuzzy filter on that field of each option object.
+
+##### props.allowCustomValues
+
+Type: `Boolean`
+
+Determines whether to show a custom value such as a static option at the end of the list of options that is always shown.
+
+##### props.staticCustomValue
+
+Type: `String`
+
+Set the default customValue display property.
+
+##### props.inputProps
+
+Type: `Object`
+
+Set any additional props that will be included on the Typeahead input.

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Reapp</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://reapp.io/"/>
+  <updated>2016-04-20T00:50:28.000Z</updated>
+  <id>http://reapp.io/</id>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Simplify Flux with Immutable.js and Fynx</title>
+    <link href="http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/"/>
+    <id>http://reapp.io/2015/03/11/Simplify-Flux-with-Immutable-js-and-Fynx/</id>
+    <published>2015-03-11T16:05:28.000Z</published>
+    <updated>2016-04-20T00:50:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;It&#39;s not exactly easy getting into Flux. There&#39;s a lot of terminology, and a lot of syntax.
+Not to mention all the different libraries. While it&#39;s undoubtedly very useful,
+for someone new to React it&#39;s a lot to take in.&lt;/p&gt;
+&lt;p&gt;Which is fine. Flux is really meant to solve problems for &amp;quot;big&amp;quot; apps.
+When your UI is handling multiple events and transforming chunks of data.&lt;/p&gt;
+&lt;p&gt;In this article we&#39;ll explain how we got to using Fynx, and then show some example
+code similar to how we used in in our &lt;a href=&quot;https://github.com/reapp/hacker-news-app&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hacker News app&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Prelude&lt;/h3&gt;
+&lt;p&gt;Nowadays, beyond rolling your own, there&#39;s a ton of libraries for Flux. From
+&lt;a href=&quot;http://fluxxor.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fluxxor&lt;/a&gt; to &lt;a href=&quot;https://github.com/spoike/refluxjs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reflux&lt;/a&gt; to
+&lt;a href=&quot;https://github.com/acdlite/flummox&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Flummox&lt;/a&gt;, each brings something unique.&lt;/p&gt;
+&lt;p&gt;At the time we were building our app Fluxxor seemed the best documented and supported.
+But, it was still verbose. After a week, out of a desperate want to reduce all the boilerplate
+we were writing, we extracted &lt;a href=&quot;https://github.com/natew/Brawndo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;a library on top of it&lt;/a&gt;.
+It was flexible, and it simplified things. But, now we were stuck with another dependency.&lt;/p&gt;
+&lt;p&gt;Then, came &lt;a href=&quot;https://github.com/foss-haas/fynx&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fynx&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See, around the same time as Flux was announced, we&#39;d been reading into &lt;a href=&quot;https://github.com/omcljs/om&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Om&lt;/a&gt;, &lt;a href=&quot;https://github.com/omniscientjs/omniscient&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Omniscient&lt;/a&gt;
+and the recently released &lt;a href=&quot;https://github.com/facebook/immutable-js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Immutable.js&lt;/a&gt;.
+Immutable structures are awesome, and cursors seemed awesomely simple.
+But, you still want to coordinate your actions somehow.&lt;/p&gt;
+&lt;p&gt;With Fynx, we got just that, and nothing more.
+Despite it&#39;s awkward ASCII diagram, it actually reduced Flux conceptually to a single thing: actions.
+How? Lets take a look.&lt;/p&gt;
+&lt;h3&gt;Stores&lt;/h3&gt;
+&lt;p&gt;Well, really just a store. Here&#39;s your entire store.js file, with Fynx:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { createCursorStore } from &#39;fynx&#39;;
+import { fromJS } from &#39;immutable&#39;;
+
+module.exports = createCursorStore(fromJS({
+  dogIds: [],
+  dogs: {}
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That&#39;s all. Use it&#39;s keys as you would normal Flux stores. There&#39;s no store methods, no waitFor, just a single cursor.&lt;/p&gt;
+&lt;h3&gt;Actions&lt;/h3&gt;
+&lt;p&gt;The power of Fynx is in its actions. Our actions.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import { createAsyncActions } from &#39;fynx&#39;;
+
+var Actions = createAsyncActions([
+  &#39;loadDogs&#39;
+]);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Note: the async actions in Fynx just means it will chain with promises. It&#39;s nice in some cases, but not a requirement.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;And then, we can make our dogActions.js:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import Actions from &#39;./actions&#39;;
+import store from &#39;./store&#39;;
+
+// we fetch the ordered array of dogs
+// then grab their individual data
+Actions.loadDogs.listen(opts =&amp;gt;
+  getDogsListFromAPI(opts).then(res =&amp;gt; {
+    store().set(&#39;dogIds&#39;, res);
+    getDogsData(res);
+  })
+)
+
+function getDogsData(res) {
+  res.map(id =&amp;gt; {
+    getDogAPI(id).then(dog =&amp;gt; {
+      store().setIn([&#39;dogs&#39;, dog.id], dog)
+    })
+  })
+}
+
+function getDogsListFromAPI() {
+  return Promise.resolve([1, 2, 3]);
+}
+
+function getDogAPI(id) {
+  var data = {
+    1: { id: 1, breed: &#39;Jack Russell&#39; },
+    2: { id: 2, breed: &#39;Shih Tzu&#39; },
+    3: { id: 3, breed: &#39;Pitbull&#39; },
+  }
+  return Promise.resolve(data[id]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Some nice things about this:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All our dog actions are in one place&lt;/li&gt;
+&lt;li&gt;I can chain my actions together as much as needed&lt;/li&gt;
+&lt;li&gt;Simple functions everywhere&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Linking it to React&lt;/h3&gt;
+&lt;p&gt;In our top level Dogs class, lets grab our store and pass it down. We can also grab the store at any level of our app just by importing it.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import store from &#39;./store&#39;;
+import Dog from &#39;./Dog&#39;;
+
+module.exports = React.createClass({
+  render() {
+    var dogIds = store().get(&#39;dogIds&#39;);
+
+    return dogIds.map(id =&amp;gt;
+      var dog = store().getIn([&#39;dogs&#39;, id]);
+
+      return &amp;lt;Dog data={dog} /&amp;gt;;
+    });
+  });
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And lets say in our Dog component, we can either respond to data simply:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;this.props.data.set(&#39;name&#39;, &#39;Scruffy&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And our store will update, along with our UI. But, this isn&#39;t Flux. Lets say we add an action in our dogActions file that reverses our dog list. After we&#39;ve added the action name in our actions.js we can do this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Action.reverseDogs.listen(() =&amp;gt;
+  store().update(&#39;dogIds&#39;, dogs =&amp;gt; dogs.reverse())
+);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And anywhere in our React tree we could then call:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import Actions from &#39;./actions&#39;;
+Actions.reverseDogs();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;shouldComponentUpdate&lt;/h3&gt;
+&lt;p&gt;The final step is to optimize our components shouldComponentUpdate now that we have immutable data throughout our app. Omniscient gives us a really nice one that works out of the box with Immutable.js.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import shouldComponentUpdate from &#39;omniscient/shouldupdate&#39;;
+
+React.createClass({
+  shouldComponentUpdate,
+  render() {
+    //...
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In &lt;a href=&quot;https://reapp.io&quot;&gt;Reapp&lt;/a&gt;, I use &lt;a href=&quot;https://github.com/reapp/reapp-component&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;a decorator&lt;/a&gt; so I don&#39;t have to manually mix it in on every class.&lt;/p&gt;
+&lt;h3&gt;In action&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Thanks to &lt;a href=&quot;https://github.com/snickell&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;snickell&lt;/a&gt;, we have a
+&lt;a href=&quot;https://github.com/reapp/reapp-dog-example&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;working demo with this code here&lt;/a&gt;.
+Check it out to see a simple example of this in action!&lt;/p&gt;
+&lt;p&gt;Want to see an app using this Flux technique in production? Download it in the
+&lt;a href=&quot;https://itunes.apple.com/us/app/hacker-news-by-reapp/id972297110?mt=8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS app store&lt;/a&gt;
+and check out &lt;a href=&quot;https://github.com/reapp/hacker-news-app&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the code on GitHub&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;It&#39;s not exactly easy getting into Flux. There&#39;s a lot of terminology, and a lot of syntax.
+Not to mention all the different libraries. W
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to Reapp</title>
+    <link href="http://reapp.io/2015/03/08/Welcome-to-Reapp/"/>
+    <id>http://reapp.io/2015/03/08/Welcome-to-Reapp/</id>
+    <published>2015-03-09T01:05:28.000Z</published>
+    <updated>2016-04-20T00:50:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to the Reapp blog.&lt;/p&gt;
+&lt;p&gt;We&#39;ve spend a lot of time getting the documentation and presentation of the
+website here just right, but it&#39;s due time to improve the community. Along
+with our own &lt;a href=&quot;https://gitter.im/reapp/reapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Gitter channel for chatting&lt;/a&gt;
+and &lt;a href=&quot;https://twitter.com/reapp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Twitter account for news&lt;/a&gt;,
+we&#39;re starting this blog.&lt;/p&gt;
+&lt;p&gt;Reapp is moving at breakneck speed. We have huge ambitions and exciting things
+in the pipeline. A Material UI theme is coming. As are new components.&lt;/p&gt;
+&lt;p&gt;But first, we want to start by
+creating the best documentation of any app platform.&lt;/p&gt;
+&lt;p&gt;Starting this week we&#39;ll be publishing a series of articles on using Reapp.
+These will be guides on building real-world apps as well as walkthrough on
+how to use the more impressive technical features of Reapp.&lt;/p&gt;
+&lt;p&gt;We already have an exciting full-length walthrough coming out on &lt;a href=&quot;http://scotch.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scotch.io&lt;/a&gt;
+shortly. We have some great &lt;a href=&quot;https://github.com/reapp/hacker-news-app&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;example&lt;/a&gt; &lt;a href=&quot;https://github.com/reapp/kitchen-sink&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;apps&lt;/a&gt;
+you can look at for inspiration in structuring your apps.&lt;/p&gt;
+&lt;p&gt;Finally, we have some big news on companies using Reapp coming soon.&lt;/p&gt;
+&lt;p&gt;Subscribe to our feed to keep posted, exciting times are ahead.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to the Reapp blog.&lt;/p&gt;
+&lt;p&gt;We&#39;ve spend a lot of time getting the documentation and presentation of the
+website here just right, bu
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

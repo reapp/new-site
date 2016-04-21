@@ -17,8 +17,16 @@ var packages = [
 
 var core = [
   'animations',
+  // TODO: Determine if we need 'styles' here.
+  // If not, remove the placeholder file at ../reapp-ui/docs/core/styles.md.
+  // If so, document it properly in that file and reference it in ./README.md;
+  // also, uncomment it in ./themes/landscape/layout/_partial/docs_nav.ejs.
   'styles',
   'themes',
+  // TODO: Determine if we need 'viewlists' here.
+  // If not, remove the placeholder file at ../reapp-ui/docs/core/viewlists.md.
+  // If so, document it properly in that file and reference it in ./README.md;
+  // also, uncomment it in ./themes/landscape/layout/_partial/docs_nav.ejs.
   'viewlists'
 ];
 
@@ -26,6 +34,7 @@ var src = {
   start: '../reapp/README.md',
 
   // docs
+  // TODO: Split ../reapp-ui/docs/components/components.md into multiple files, one for each component.
   components: '../reapp-ui/docs/components/*',
   views: '../reapp-ui/docs/views/*',
   ui: '../reapp-ui/README.md',
@@ -33,7 +42,7 @@ var src = {
     return '../reapp-' + name + '/README.md';
   }),
   core: core.map(function(name) {
-    return '../reapp-ui/docs/core/'+name+'.md';
+    return '../reapp-ui/docs/core/' + name + '.md';
   })
 };
 

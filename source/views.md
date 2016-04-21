@@ -22,6 +22,7 @@ propTypes: {
   scrollerProps: React.PropTypes.object
 }
 ```
+
 ### LayoutLeftNav
 
 **In Progress**
@@ -40,6 +41,7 @@ propTypes: {
   draggable: React.PropTypes.bool
 }
 ```
+
 ### NestedViewList
 
 This is the standard viewlist and for now mimics the iOS-style swipe from the edge
@@ -61,6 +63,7 @@ propTypes: {
   scrollerProps: React.PropTypes.object
 }
 ```
+
 ### View
 
 The base View class. Give it a `title` property to automatically add a titlebar.
@@ -110,6 +113,7 @@ propTypes: {
   ])
 }
 ```
+
 ### ViewList
 
 By default the ViewList comes with no properties,

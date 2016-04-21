@@ -123,7 +123,7 @@ You can see the exact app that's generated through the [reapp-starter repo](http
 ```
 
 By default `/app/app.js` is your entry point. Everything in the app folder should be pretty
-self-explanatory. `/assets` contains static assets as explained in the [Running & Building](#running-and-building)
+self-explanatory. `/assets` contains static assets as explained in the [Running & Building](#running-&amp;-building)
 section. In general, you'll place your assets into `shared` or the specific platform
 subdirectory.
 
@@ -254,10 +254,41 @@ We have two example apps you can check the source to:
  - [Kitchen Sink](https://github.com/reapp/kitchen-sink) ([demo](http://kitchen.reapp.io))
  - [Hacker News Reader](https://github.com/reapp/hacker-news-app) ([demo](http://hn.reapp.io))
 
-### Development Environment
+### Cordova
 
-Sublime users, [here's a guide](https://medium.com/@dan_abramov/lint-like-it-s-2015-6987d44c5b48)
-for getting syntax highlighting, snippets and linting that works with babel.
+ Using Reapp with Cordova is incredibly easy. Here are the steps for setting
+ up a workflow that lets you build to Xcode in one step:
+
+ 1. Install cordova cli
+ 2. `cordova create appname`
+ 3. Adjust config.xml to your liking
+ 4. `cordova platform add ios`
+ 5. Some plugins we use:
+   - com.telerik.plugins.wkwebview 0.3.5 "WKWebView Polyfill"
+   - org.apache.cordova.console 0.2.13 "Console"
+   - org.apache.cordova.device 0.3.0 "Device"
+   - org.apache.cordova.inappbrowser 0.6.0 "InAppBrowser"
+   - org.apache.cordova.statusbar 0.1.10 "StatusBar
+ 6. In your cordova app:
+   - `rm -r www`
+   - `ln -s ../PATH_TO_REAPP_APP/build/ios www`
+ 7. In your reapp app:
+   - Build for ios: `reapp build ios && (cd ~/PATH_TO_YOUR_CORDOVA_APP && cordova prepare)`
+ 8. Open the .xcodeproj in Xcode (it's in your platforms folder)
+ 9. Build using Xcode
+ 10. That's it
+
+ From now on, you run the command from step 7 and it will automatically
+ build and prepare for Xcode.
+
+ Extra reading:
+
+  - WKWebView
+    - cordova plugin add https://github.com/Telerik-Verified-Plugins/WKWebView
+    - [Remove push notifications iOS8](http://stackoverflow.com/questions/25017933/cordova-how-to-remove-push-notification-on-ios)
+  - [statusTap](https://github.com/triceam/cordova-statusTap)
+  - [iTunes screenshots](http://stackoverflow.com/questions/25756863/full-resolution-screenshots-for-iphone-6-and-6)_
+  - [iOS8 scroll events change](http://developer.telerik.com/featured/scroll-event-change-ios-8-big-deal/)
 
 ### Other reapp packages
 - [reapp-kit](https://github.com/reapp/reapp-kit) (Combines Reapp packages together)

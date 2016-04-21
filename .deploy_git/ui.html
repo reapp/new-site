@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title>ui |  Reapp - Hybrid apps, fast</title>
+  <meta name="description" content="The Reapp User Interface
+If you&apos;re not using reapp-kit, you can
+use reapp-ui by itself with no extra dependencies. It will require a little
+more work to get running, but we&apos;ve purposely kept everythin">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ui">
+<meta property="og:url" content="http://reapp.io/ui.html">
+<meta property="og:site_name" content="Reapp">
+<meta property="og:description" content="The Reapp User Interface
+If you&apos;re not using reapp-kit, you can
+use reapp-ui by itself with no extra dependencies. It will require a little
+more work to get running, but we&apos;ve purposely kept everythin">
+<meta property="og:updated_time" content="2016-04-21T03:09:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ui">
+<meta name="twitter:description" content="The Reapp User Interface
+If you&apos;re not using reapp-kit, you can
+use reapp-ui by itself with no extra dependencies. It will require a little
+more work to get running, but we&apos;ve purposely kept everythin">
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" href="/atom.xml" title="Reapp">
+</head>
+<body>
+  <header class="header">
+  <div class="row center-xs start-md">
+    <h1 class="logo"><a href="/">Reapp</a></h1>
+
+    <nav class="nav">
+      <a  href="/start.html">Get Started</a>
+      <a class="active" href="/ui.html">Doc<span class="hide-sm">s</span><span class="hide-xs show-sm">umentation</span></a>
+      <a  href="/blog">Blog</a>
+    </nav>
+
+    <nav class="nav right hide-xs">
+      <a href="https://twitter.com/reapp">Twitter</a>
+      <a href="https://github.com/reapp/reapp" target="_blank">
+        Github
+      </a>
+    </nav>
+  </div>
+</header>
+<div class="sub-nav">
+  <div class="row">
+    <div class="col-xs-12">
+      <nav>
+        <a class="active" href="/ui.html">User Interface</a>
+        <a  href="/packages.html">Packages</a>
+
+        <hr />
+
+        <a  href="/components.html">Components</a>
+        <a  href="/views.html">Views</a>
+
+        <hr />
+
+        <span class="core">
+          <a  href="/docs-animations.html">Animations</a>
+          <!-- <a  href="/docs-styles.html">Styles</a> -->
+          <a  href="/docs-themes.html">Themes</a>
+          <!-- <a  href="/docs-viewlists.html">ViewLists</a> -->
+        </span>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div class="page">
+  <div class="row">
+    <div id="nav" class="col-xs-12 col-md-5">
+      <!-- nav.js will generate this -->
+    </div>
+
+    <div class="col-xs-12 col-md-7 first-xs pad-right">
+      <h2>The Reapp User Interface</h2>
+<p>If you're not using <a href="https://github.com/reapp/reapp-kit" target="_blank" rel="external">reapp-kit</a>, you can
+use reapp-ui by itself with no extra dependencies. It will require a little
+more work to get running, but we've purposely kept everything modular so you
+can choose how much you want to use.</p>
+<p>reapp-ui is a set of React components for building beautiful user interfaces
+for all platforms. It has a few goals:</p>
+<ul>
+<li>Powerful interaction and animations</li>
+<li>Easy to use what you want, and leave the rest</li>
+<li>Themeable in every way</li>
+<li>High performance</li>
+</ul>
+<h3>Usage</h3>
+<p>The simplest way of using reapp-ui is to load one of our themes, and
+then import the components you want to use. Here's an example of this;</p>
+<pre><code class="js">import iOSTheme from 'reapp-ui/themes/ios/theme'
+import Theme from 'reapp-ui/helpers/Theme';
+import Button from 'reapp-ui/components/Button';
+import React from 'react';
+
+export default React.createClass({
+  render() {
+    return (
+      &lt;Theme {...iOSTheme}&gt;
+        &lt;Button color=&quot;red&quot; /&gt;
+      &lt;/Theme&gt;
+    );
+  }
+});
+</code></pre>
+<p>This will bundle every style for every component in the iOS theme. It's
+simple and easy to get started with. Reapp themes are very powerful, though,
+and they allow you to customize every aspect of them.</p>
+<p>Let's see how they work. If you open the <code>reapp-ui/themes/ios/theme.js</code> file
+you'll see how we load the iOS theme:</p>
+<pre><code class="js">import UI from 'reapp-ui';
+
+UI.addConstants(
+  require('./constants/base'),
+  require('./constants/components')
+);
+
+UI.addAnimations(require('./animations'));
+UI.addStyles(require('./styles'));
+
+export default UI.makeTheme();
+</code></pre>
+<p>As you can see, we're basically loading three different pieces: constants,
+styles, and animations. We're also loading the stylesheets file which
+includes our base.css styles that are used to normalize everything.</p>
+<p>You could easily override each of these steps by adding in new constants,
+styles, or animations, or overwriting the ones we use!</p>
+<h3>Using Reapp</h3>
+<p>The rest of the docs here describe the internals of reapp-ui. If you want to learn
+more on how Reapp works, check out:</p>
+<ul>
+<li><a href="http://reapp.io/components.html">Components</a> &amp; <a href="http://reapp.io/views.html">Views</a>: The building blocks of reapp-ui</li>
+<li><a href="http://reapp.io/packages.html">Packages</a>: Information on the other packages that come with reapp</li>
+<li><a href="http://reapp.io/docs-animations.html">Animations</a>: How to make custom animations</li>
+<li><a href="http://reapp.io/docs-themes.html">Themes</a>: Themes in depth</li>
+<li><a href="http://reapp.io/start.html#running-&amp;-building">Building</a> &amp; <a href="http://reapp.io/start.html#cordova">Cordova</a>: How to build your app for the web, iOS and other platforms</li>
+</ul>
+<h3>Demos</h3>
+<p>You can add these demos to your home screen or emulate mobile on your browser:</p>
+<ul>
+<li><a href="http://kitchen.reapp.io" target="_blank" rel="external">kitchen.reapp.io</a></li>
+<li><a href="http://hn.reapp.io" target="_blank" rel="external">hn.reapp.io</a></li>
+</ul>
+<p>A note on speed: Your apps will run significantly faster when they are built. When running in
+dev mode they are not only checking PropTypes and for a variety of warnings, but they also
+aren't running using requestAnimationFrame which means they tax the CPU a lot more (but in exchange
+are easier to debug).</p>
+<h3>Internal Documentation</h3>
+<h4>Structure</h4>
+<pre><code>  /assets
+    Icons, etc
+  /behaviors
+    (!) Used within components, can be passed in to override
+  /components
+    The UI components
+  /helpers
+    Components which don't map directly to user-viewable, helper components
+  /lib
+    Internally used functions
+  /mixins
+    All mixins (used internally and externally)
+  /stores
+    Internal: should be removable once parent-based contexts are in React
+  /themes
+    Theme files users can require
+</code></pre>
+<p><strong>index.js</strong></p>
+<p>Used to set up reapp-ui.</p>
+<p>reapp-ui uses three different things that must be imported at initialization. These
+things are imported so they can be mixed and matched for use with adapting
+theme or behavior.</p>
+<p>For now it has three relevant methods:</p>
+<ul>
+<li>
+<p><code>addConstants</code>: constants allow users to customize themes easily. They are used
+in styles (and in the future could be used with animations and more).
+<em><em>See /themes/ios/constants/</em> for examples.</em>*</p>
+</li>
+<li>
+<p><code>addStyles</code>: styles objects, keys map to the names of components and values are
+objects that are CSS styles in JS. Values can optionally be a function, that takes
+in the constants as the argument.
+<em><em>See /themes/ios/styles/</em> for examples.</em>*</p>
+</li>
+<li>
+<p><code>addAnimations</code>: animations are objects, keys are names, values are functions that
+take an object with <code>index</code>, <code>step</code> as keys, an optionally extra keys with more info.
+<strong>See /themes/ios/animations.js for examples.</strong></p>
+</li>
+</ul>
+<p>To see how you'd make a theme, we suggest looking at <code>/themes/ios/theme.js</code>. You
+can require that file to have the entire iOS theme setup for you automatically.</p>
+<p><strong>component.js</strong></p>
+<p>component is a decorator that is used internally by reapp-ui to make components. It
+was extracted out and is a nice set of mixins that allow the ui components to avoid
+repetitious code.</p>
+<p>This is an important file to inspect before understanding how this library works,
+and from there, the Mixins that are used here make the foundation of the UI kit.</p>
+<h4>Contributing</h4>
+<p>Because Reapp is split into a number of modules, you'll probably need to do a little
+more work than usual to contribute. For the UI, the best setup is to do the following:</p>
+<ol>
+<li>Create a <code>reapp</code> folder</li>
+<li>Clone the <a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">kitchen sink</a> repository</li>
+<li>Clone this repository</li>
+<li>Run <code>sudo npm link</code> inside this repository</li>
+<li><strong>Important:</strong> Run <code>rm -r node_modules/react</code> in reapp-ui and be sure react isn't duplicated in Webpack build</li>
+<li>Run <code>npm run build</code> in this directory, this will build your reapp-ui for the first time and put it into the ./build folder.</li>
+<li>Run <code>npm run copyAssets</code> in this directory to copy assets to the babel output directory.</li>
+<li>Run <code>npm run watch</code> in this directory to start babel compiler. <strong>Note</strong>: Be sure to edit in <code>./src</code> directory only.</li>
+<li>Run <code>ln -s $PREFIX/lib/node_modules/reapp-ui/build node_modules/reapp-ui</code>
+inside the kitchen sink repository. The placeholder <code>$PREFIX</code> is the
+<a href="https://docs.npmjs.com/files/folders#prefix-configuration" target="_blank" rel="external">prefix</a>
+used for the installation of node. Usually this is <code>/usr/local</code>. The command
+<code>npm config get prefix</code> can also be used to find the prefix. (The <code>npm link</code>
+command will not work here because it will reference the project root instead of
+build output directory.)</li>
+</ol>
+<p>This will link your reapp-ui module into your kitchen sink repo. Now you can:</p>
+<ol start="10">
+<li>Run <code>reapp run -d</code> inside kitchen sink</li>
+<li>Go to <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a></li>
+<li>Make edits inside reapp-ui and they will automatically compile into the kitchen sink.</li>
+</ol>
+<p><strong>Warning:</strong> When running locally you may run into some unique bugs. Because <code>npm link</code>
+runs an <code>npm install</code>, it will often install multiple versions of React into your
+modules folders, causing Webpack to bundle multiple versions of it into your app. This
+can cause a variety of errors. If you see stuff that warns about <code>Mount, Link, Context</code>,
+it is most likely because of this. Delete the react folder inside reapp-ui and any other
+sub-modules and re-run Webpack.</p>
+<h3>Credits</h3>
+<p>Original inspiration was thanks to <a href="https://github.com/petehunt" target="_blank" rel="external">Pete Hunt</a>'s <a href="http://petehunt.github.io/react-touch/" target="_blank" rel="external">React Mobile Demo</a>.
+The <a href="http://www.idangero.us/framework7/" target="_blank" rel="external">Framework7</a> Kitchen Sink was used as reference when building the kitchen sink.</p>
+<p>SVG Icons included in this repo are originally from <a href="http://www.flaticon.com/packs/ios7-set-lined-1" target="_blank" rel="external">flaticon</a>
+and are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="external">Creative Commons 3.0</a>. If you use them with your project, you must
+include attribution &quot;in any reasonable manner, but not in any way that suggests the licensor endorses you or your use&quot;.</p>
+<p>A big part of <a href="https://github.com/JedWatson/react-tappable" target="_blank" rel="external">react-tappable</a> was imported for use as a mixin, and will be sent
+back as a pull request soon!</p>
+<p>Help throughout was given in the #reactjs freenode channel, and from various great members
+of the react community including:</p>
+<ul>
+<li><a href="https://github.com/andreypopp" target="_blank" rel="external">Andrey Popp</a></li>
+<li><a href="https://github.com/rpflorence" target="_blank" rel="external">Ryan Florence</a></li>
+<li><a href="http://github.com/gaearon" target="_blank" rel="external">Dan Abramov</a></li>
+</ul>
+<p>and many more.</p>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/nav.js"></script>
+
+    <footer class="footer">
+    <div class="row">
+      <div class="hide-xs col-sm-2"></div>
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="/start.html">Get Started</a>
+          <a href="/ui.html">Docs</a>
+          <a href="/packages.html">Packages</a>
+        </nav>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="https://github.com/reapp/reapp" target="_blank">Github</a>
+          <a href="https://twitter.com/reapp" target="_blank">Twitter</a>
+        </nav>
+      </div>
+      <div class="hide-xs col-sm-2"></div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <span>Copyright 2016 reapp.</span>
+          <span>Icons from <a href="http://www.flaticon.com">flaticon.com</a> under CC 3.0</span>
+          <span>nate@reapp.io</span>
+          <span>Stewarded by</span>
+          <a href="https://www.levelupdevelopment.com">
+            <img width="25%" height="25%" src="/images/lud-logo.svg" title="Level Up Development LLC" alt="Level Up Development LLC" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="spiro"></div>
+  </footer>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57645827-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script src="/js/highlight.js"></script>
+  <script src="/js/highlight-js.js"></script>
+  <script src="/js/highlight-xml.js"></script>
+  <script>
+    hljs.registerLanguage('js', H_js);
+    hljs.registerLanguage('xml', H_xml);
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+.blog h1 {
+  margin: 0.5rem 0 2rem;
+}
+.archive-article {
+  margin-bottom: 10rem;
+}
+.archive-year-wrap {
+  margin-bottom: 20px;
+}
+.archive-year-wrap a {
+  color: #999;
+  font-size: 1rem;
+  font-weight: bold;
+}
+time {
+  font-size: 1.2rem;
+  margin: 0;
+}
+a time {
+  color: #999;
+}

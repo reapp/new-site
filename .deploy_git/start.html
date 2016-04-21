@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="utf-8">
+
+  <title>start |  Reapp - Hybrid apps, fast</title>
+  <meta name="description" content="What is it?
+Reapp is everything you need to build amazing apps with React: a collection of
+packages that work together, our UI kit, and a CLI that scaffolds your app and includes
+a server and build sy">
+<meta property="og:type" content="website">
+<meta property="og:title" content="start">
+<meta property="og:url" content="http://reapp.io/start.html">
+<meta property="og:site_name" content="Reapp">
+<meta property="og:description" content="What is it?
+Reapp is everything you need to build amazing apps with React: a collection of
+packages that work together, our UI kit, and a CLI that scaffolds your app and includes
+a server and build sy">
+<meta property="og:image" content="https://badges.gitter.im/Join%20Chat.svg">
+<meta property="og:updated_time" content="2016-04-21T03:09:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="start">
+<meta name="twitter:description" content="What is it?
+Reapp is everything you need to build amazing apps with React: a collection of
+packages that work together, our UI kit, and a CLI that scaffolds your app and includes
+a server and build sy">
+<meta name="twitter:image" content="https://badges.gitter.im/Join%20Chat.svg">
+
+  <link rel="icon" href="/favicon.png" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_light.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" href="/atom.xml" title="Reapp">
+</head>
+<body>
+  <header class="header">
+  <div class="row center-xs start-md">
+    <h1 class="logo"><a href="/">Reapp</a></h1>
+
+    <nav class="nav">
+      <a class="active" href="/start.html">Get Started</a>
+      <a  href="/ui.html">Doc<span class="hide-sm">s</span><span class="hide-xs show-sm">umentation</span></a>
+      <a  href="/blog">Blog</a>
+    </nav>
+
+    <nav class="nav right hide-xs">
+      <a href="https://twitter.com/reapp">Twitter</a>
+      <a href="https://github.com/reapp/reapp" target="_blank">
+        Github
+      </a>
+    </nav>
+  </div>
+</header>
+
+<div class="page start">
+  <div class="row">
+    <div id="nav" class="col-xs-12 col-md-5">
+      <!-- nav.js will generate this -->
+    </div>
+
+    <div class="col-xs-12 col-md-7 first-xs pad-right">
+      <h3>What is it?</h3>
+<p>Reapp is everything you need to build amazing apps with React: a collection of
+packages that work together, our UI kit, and a CLI that scaffolds your app and includes
+a server and build system.</p>
+<p><a href="https://gitter.im/reapp/reapp?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" target="_blank" rel="external"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/reapp/reapp"></a></p>
+<h3>Installation</h3>
+<p>Installation is done through npm:</p>
+<pre><code>npm install -g reapp
+</code></pre>
+<p>Generate a new base reapp stack with:</p>
+<pre><code>reapp new [name]
+</code></pre>
+<p>And finally in your app directory, run it on <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a>:</p>
+<pre><code>reapp run
+</code></pre>
+<h3>CLI</h3>
+<p>The CLI has three main functions: creating new apps, running them, and building them for release.</p>
+<p>Note that when you run your app, it will run in development mode by default which is much slower
+but easier to debug. Run it in production mode to get a feel for real-world performance.</p>
+<p>CLI Usage:</p>
+<pre><code>Usage: reapp [command]
+
+  new [name]  creates a directory with a new reapp-starter scaffold
+  run         runs a reapp application with express/webpack-dev-server
+  build       builds a reapp application to a bundle in ./build
+  debug       use this for opening issues!
+</code></pre>
+<p>The build and run commands take a variety of options to help ease your development, such as:</p>
+<pre><code>Usage: reapp-run [options]
+
+  -d, --debug          output extra information for debugging
+  -p, --port [number]  specify a port [number]
+  -h, --host [host]    specify hostname
+  -b, --bind [address] specify bind address if different from host
+  -e, --env [env]      specify an environment
+  -t, --tool [tool]    specify a webpack devtool
+</code></pre>
+<pre><code>Usage: reapp-build [options]
+
+  -d, --debug  output extra information for debugging
+  --no-assets  only build the js
+  --no-js      only build the assets
+</code></pre>
+<h3>Running &amp; Building</h3>
+<p>Use <code>reapp run</code> to serve your app locally, by default at <a href="http://localhost:3010" target="_blank" rel="external">localhost:3010</a>.
+The <code>run</code> command has a few options to help you out:</p>
+<ul>
+<li><code>reapp run -d</code> (debug) to output information on how it's running your app</li>
+<li><code>reapp run -e production</code> (env=production) to run your app in production mode, which is much faster</li>
+<li><code>reapp run -t source-map</code> (tool=source-map) to have full sourcemaps rather than the &quot;eval&quot; style sourcemaps we default to</li>
+</ul>
+<p>You also have the same flags available to build commands.</p>
+<p>The <code>build</code> command is used once you're ready to deploy your app (to either the web or to cordova). For now,
+we provide two types of builds:</p>
+<ul>
+<li><code>reapp build</code> by default sets the platform to <strong>web</strong>, for mobile sites.</li>
+<li><code>reapp build ios</code> targets Cordova ios devices.</li>
+</ul>
+<p>When you run <code>reapp build</code> you'll notice a new <code>./build</code> folder where your assets have been copied to.
+For example, a <code>reapp build ios</code> will build to <code>./build/ios</code>. <code>reapp build</code> goes to <code>./build/web</code>.</p>
+<p>It will also copy your assets for you. Here's an example of running <code>reapp build ios</code>:</p>
+<pre><code>./assets/shared/* =&gt; ./build/ios
+./assets/ios/* =&gt; ./build/ios
+./assets/ios/index.html =&gt; (Webpack inserts CSS/JS references) =&gt; ./build/ios/index.html
+</code></pre>
+<p>This allows a lot of flexibility. You can share assets between builds, or have
+exclusive ones for a platform. Leave an asset in the base <code>./assets</code> folder
+and it won't be copied at all, but you can still <code>require()</code> it within your app.</p>
+<p>A good case for shared assets is your Cordova config.xml. Leave it in <code>./assets/shared</code>
+and it'll output for all your builds.</p>
+<p><a href="#custom-builds">See more on custom builds</a>.</p>
+<h3>Structure of your applications</h3>
+<p>You can see the exact app that's generated through the <a href="https://github.com/reapp/reapp-starter" target="_blank" rel="external">reapp-starter repo</a>.</p>
+<pre><code>/app
+  /components
+  /theme
+  app.js
+/assets
+  /web
+    index.html
+  /ios
+    index.html
+  /shared
+/config (optional)
+</code></pre>
+<p>By default <code>/app/app.js</code> is your entry point. Everything in the app folder should be pretty
+self-explanatory. <code>/assets</code> contains static assets as explained in the <a href="#running-&amp;-building">Running &amp; Building</a>
+section. In general, you'll place your assets into <code>shared</code> or the specific platform
+subdirectory.</p>
+<p>The <code>/theme</code> folder is <a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> specific. You can
+find docs for it in the repo, but it also should be pretty easy to understand.</p>
+<p>If you place a <code>build.webpack.js</code> or <code>run.webpack.js</code> in your <code>/config</code> dir, the reapp CLI
+will use these configs when you run <code>reapp build</code> or <code>reapp run</code>.
+To see some example configs, check out the files in the <code>./config</code> folder of the
+<a href="https://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack repo</a>.</p>
+<h3>Your First App</h3>
+<p>There are a number of pieces we've included in a reapp. Let's explore a few
+of them in order of when you'll encounter them in your codebase. Think of this
+as a tour of a reapp app, giving an introduction to packages as we encounter them.</p>
+<p>You can check out the <a href="https://github.com/reapp" target="_blank" rel="external">reapp project on Github</a> for more info.</p>
+<p>You also have an entry point defined as <code>app/app.js</code>. This starts your app.
+The most important part here is the routing. Lets start there.</p>
+<h4>./app/app.js</h4>
+<p>Load all your stuff. From theme to store to actions. Then, you run your routes,
+which are done using reapp-routes. This simplifies routing down to the bare minimum.
+Note that your routes will automatically look into <code>./components</code> to find files,
+based on the name you give them.</p>
+<p>An example:</p>
+<pre><code class="js">routes(require,
+  route('home', '/', route('sub')))
+
+  // ./components/Home.jsx
+  // ./components/home/Sub.jsx
+</code></pre>
+<p>This is the reapp-routes syntax. The key to note here is the <code>require</code> that
+is passed to the routes function at the top level, which is how it dynamically
+requires your components based on the route tree.</p>
+<h4>./app/theme (<a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> UI Kit)</h4>
+<p>The next theme we require is the <code>./app/theme/index.js</code>. Themes are loaded by calling
+<code>Reapp.theme()</code> and passing in an object with styles, constants and animations.
+You can just use the included iOS theme, but we've included the <code>./app/theme</code> folder
+as an example of how you can easily customize themes.</p>
+<p>For more documentation on themes, <a href="http://reapp.io/docs-themes.html">read here</a>.</p>
+<h4>./app/components/Home.jsx</h4>
+<p>This is the first React component in your structure, as defined in your routes.
+Notice when we export it, we wrap it with <code>Reapp</code>. This helper function will provide
+the <code>this.context</code> variables that you've set up when you loaded your theme, actions,
+and store (if you decide to use all of those). It will also pass props to your Home route,
+<code>this.props.child</code> and <code>this.props.viewListProps</code>. You can see that they correspond
+to any children routes, and to properties needed to be on a <code>&lt;ViewList&gt;</code> that will handle
+those routes.</p>
+<h4>More reading</h4>
+<ul>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a></li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a></li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a></li>
+</ul>
+<h3>Custom builds</h3>
+<p>Reapp-pack takes in an object that lets you configure your builds. It provides you with
+<a href="https://github.com/reapp/reapp-pack/tree/master/config" target="_blank" rel="external">default config files</a>, but you
+can override them if you need custom Webpack loaders.</p>
+<p>The build system generates your Webpack config using <a href="https://github.com/reapp/reapp-pack" target="_blank" rel="external">reapp-pack</a>.</p>
+<ul>
+<li><code>reapp run</code> looks for: <code>./config/run.config.js</code></li>
+<li><code>reapp build</code> looks for: <code>./config/build.config.js</code></li>
+<li><code>reapp build [platform]</code> looks for: <code>./config/build.[platform].config.js</code></li>
+</ul>
+<p>Place a config in your <code>./config/[run/build].[platform].config.js</code> to override the default.</p>
+<p>Here's an example config:</p>
+<pre><code class="js">module.exports = {
+  entry: './app/app.js',
+  devtool: 'none',
+  target: 'web',
+  env: 'production',
+  linkModules: true,
+  debug: true,
+  separateStylesheet: true,
+  minify: true
+};
+</code></pre>
+<p>You can also provide the following options that are passed to Webpack:</p>
+<pre><code>  loaders: array
+  modulesDirectories: array
+  prefetch: array
+</code></pre>
+<h3>Why Reapp?</h3>
+<p>Reapp wasn't built purposefully to be a framework. Instead, it started
+as a UI kit. From that kit, two apps were built. While this isn't a lot,
+it was enough to see repetition between the two that could be extracted.</p>
+<p>From those two apps, over a period of months, we extracted a set of
+packages, ensuring to keep each of them completely independent. It was
+an experiment in seeing if a framework was necessary.</p>
+<p>What we found was this: if you can subscribe to a certain file structure,
+you can avoid the framework. With that file structure, we can provide
+helpers via a CLI. Bootstrap your app in one command and you have a mature
+build system built in, without having to do anything.</p>
+<p>Really, Reapp is simple. You could even just use the UI kit and roll your own
+app. We just went through that headache, and decided to make it easier to
+avoid it if you like how we make apps.</p>
+<h3>Example Apps</h3>
+<p>We have two example apps you can check the source to:</p>
+<ul>
+<li><a href="https://github.com/reapp/kitchen-sink" target="_blank" rel="external">Kitchen Sink</a> (<a href="http://kitchen.reapp.io" target="_blank" rel="external">demo</a>)</li>
+<li><a href="https://github.com/reapp/hacker-news-app" target="_blank" rel="external">Hacker News Reader</a> (<a href="http://hn.reapp.io" target="_blank" rel="external">demo</a>)</li>
+</ul>
+<h3>Cordova</h3>
+<p>Using Reapp with Cordova is incredibly easy. Here are the steps for setting
+up a workflow that lets you build to Xcode in one step:</p>
+<ol>
+<li>Install cordova cli</li>
+<li><code>cordova create appname</code></li>
+<li>Adjust config.xml to your liking</li>
+<li><code>cordova platform add ios</code></li>
+<li>Some plugins we use:</li>
+</ol>
+<ul>
+<li>com.telerik.plugins.wkwebview 0.3.5 &quot;WKWebView Polyfill&quot;</li>
+<li>org.apache.cordova.console 0.2.13 &quot;Console&quot;</li>
+<li>org.apache.cordova.device 0.3.0 &quot;Device&quot;</li>
+<li>org.apache.cordova.inappbrowser 0.6.0 &quot;InAppBrowser&quot;</li>
+<li>org.apache.cordova.statusbar 0.1.10 &quot;StatusBar</li>
+</ul>
+<ol start="6">
+<li>In your cordova app:</li>
+</ol>
+<ul>
+<li><code>rm -r www</code></li>
+<li><code>ln -s ../PATH_TO_REAPP_APP/build/ios www</code></li>
+</ul>
+<ol start="7">
+<li>In your reapp app:</li>
+</ol>
+<ul>
+<li>Build for ios: <code>reapp build ios &amp;&amp; (cd ~/PATH_TO_YOUR_CORDOVA_APP &amp;&amp; cordova prepare)</code></li>
+</ul>
+<ol start="8">
+<li>Open the .xcodeproj in Xcode (it's in your platforms folder)</li>
+<li>Build using Xcode</li>
+<li>That's it</li>
+</ol>
+<p>From now on, you run the command from step 7 and it will automatically
+build and prepare for Xcode.</p>
+<p>Extra reading:</p>
+<ul>
+<li>WKWebView
+<ul>
+<li>cordova plugin add https://github.com/Telerik-Verified-Plugins/WKWebView</li>
+<li><a href="http://stackoverflow.com/questions/25017933/cordova-how-to-remove-push-notification-on-ios" target="_blank" rel="external">Remove push notifications iOS8</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/triceam/cordova-statusTap" target="_blank" rel="external">statusTap</a></li>
+<li><a href="http://stackoverflow.com/questions/25756863/full-resolution-screenshots-for-iphone-6-and-6" target="_blank" rel="external">iTunes screenshots</a>_</li>
+<li><a href="http://developer.telerik.com/featured/scroll-event-change-ios-8-big-deal/" target="_blank" rel="external">iOS8 scroll events change</a></li>
+</ul>
+<h3>Other reapp packages</h3>
+<ul>
+<li><a href="https://github.com/reapp/reapp-kit" target="_blank" rel="external">reapp-kit</a> (Combines Reapp packages together)</li>
+<li><a href="https://github.com/reapp/reapp-routes" target="_blank" rel="external">reapp-routes</a> (Routes generator)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp-ui</a> (UI Kit)</li>
+<li><a href="https://github.com/reapp/reapp-ui" target="_blank" rel="external">reapp</a> (CLI)</li>
+<li><a href="https://github.com/reapp/reapp-platform" target="_blank" rel="external">reapp-platform</a> (Base utils)</li>
+<li><a href="https://github.com/reapp/reapp-component" target="_blank" rel="external">reapp-component</a> (DI and Factories)</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/nav.js"></script>
+    <footer class="footer">
+    <div class="row">
+      <div class="hide-xs col-sm-2"></div>
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="/start.html">Get Started</a>
+          <a href="/ui.html">Docs</a>
+          <a href="/packages.html">Packages</a>
+        </nav>
+      </div>
+
+      <div class="col-xs-12 col-sm-4">
+        <nav>
+          <a href="https://github.com/reapp/reapp" target="_blank">Github</a>
+          <a href="https://twitter.com/reapp" target="_blank">Twitter</a>
+        </nav>
+      </div>
+      <div class="hide-xs col-sm-2"></div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <span>Copyright 2016 reapp.</span>
+          <span>Icons from <a href="http://www.flaticon.com">flaticon.com</a> under CC 3.0</span>
+          <span>nate@reapp.io</span>
+          <span>Stewarded by</span>
+          <a href="https://www.levelupdevelopment.com">
+            <img width="25%" height="25%" src="/images/lud-logo.svg" title="Level Up Development LLC" alt="Level Up Development LLC" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="spiro"></div>
+  </footer>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-57645827-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script src="/js/highlight.js"></script>
+  <script src="/js/highlight-js.js"></script>
+  <script src="/js/highlight-xml.js"></script>
+  <script>
+    hljs.registerLanguage('js', H_js);
+    hljs.registerLanguage('xml', H_xml);
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>
+
+</body>
+</html>
