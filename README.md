@@ -34,21 +34,21 @@ npm install -g hexo-cli
 
   https://github.com/reapp/reapp.github.io.git
 
-1. Update the desired documentation content in the individual README.md files of the above reapp and reapp-\* repositories. See table below for more details.
+2. Update the desired documentation content in the individual README.md files of the above reapp and reapp-\* repositories. See table below for more details.
 
-1. Generate site markdown from individual repositories' markdown by running this repository's default gulp task.
+3. Generate site markdown from individual repositories' markdown by running this repository's default gulp task.
 ```
 gulp
 ```
-1. Generate Hexo content from generated markdown and other files in this repository.
+4. Generate Hexo content from generated markdown and other files in this repository.
 ```
 hexo generate
 ```
-1. Run local Hexo server and test changes locally (http://localhost:4000).
+5. Run local Hexo server and test changes locally (http://localhost:4000).
 ```
 hexo server
 ```
-1. Deploy changes to the reapp.github.io repository which results in [reapp.io](http://reapp.io) being updated.
+6. Deploy changes to the reapp.github.io repository which results in [reapp.io](http://reapp.io) being updated.
 ```
 hexo deploy
 ```
