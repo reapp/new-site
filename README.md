@@ -56,8 +56,6 @@ npm install -g hexo-cli
   hexo deploy
   ```
 
-*Note that this results in an immediate commit/push to the new-site and reapp.github.io repositories and thus the production reapp.io site.*
-
 | To show documentation under this site navigation section... | ...edit these documentation files... | ...which generates these files |
 | :---: | :---: | :---: |
 | Get Started | [reapp/README.md](../reapp/README.md) | [new-site/source/start.md](./source/start.md) |
