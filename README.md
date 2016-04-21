@@ -40,18 +40,22 @@ npm install -g hexo-cli
   ```
   gulp
   ```
+
 1. Generate Hexo content from generated markdown and other files in this repository.
   ```
   hexo generate
   ```
+
 1. Run local Hexo server and test changes locally (http://localhost:4000).
   ```
   hexo server
   ```
+
 1. Deploy changes to the reapp.github.io repository which results in [reapp.io](http://reapp.io) being updated.
   ```
   hexo deploy
   ```
+
 *Note that this results in an immediate commit/push to the reapp.github.io repository and thus the production reapp.io site.*
 
 | To show documentation under this site navigation section... | ...edit these documentation files... | ...which generates these files |
