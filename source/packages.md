@@ -230,7 +230,6 @@ webpackServer(config, {
 ### Options
 
 See `./index.js`.
-
 ## reapp-server
 
 reapp-server provides express and webpack servers that work together to serve
