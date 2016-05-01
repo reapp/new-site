@@ -86,6 +86,7 @@ exclude_generator:
 deploy:
   type: git
   repo: https://github.com/reapp/reapp.github.io.git
+  branch: master
 
 # Feed
 feed:
