@@ -84,8 +84,6 @@ exclude_generator:
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/reapp/reapp.github.io.git
 
 # Feed
 feed:
