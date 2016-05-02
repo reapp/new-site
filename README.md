@@ -36,14 +36,9 @@ npm install -g hexo-cli
 
 1. Update the desired documentation content in the individual README.md files of the above reapp and reapp-\* repositories. See table below for more details.
 
-1. Generate site markdown from individual repositories' markdown by running this repository's default gulp task.
+1. Generate site markdown from individual repositories' markdown and Hexo content.
   ```
-  gulp
-  ```
-
-1. Generate Hexo content from generated markdown and other files in this repository.
-  ```
-  hexo generate
+  npm run generate
   ```
 
 1. Run local Hexo server and test changes locally (http://localhost:4000).
@@ -53,7 +48,7 @@ npm install -g hexo-cli
 
 1. Deploy changes to the reapp.github.io repository which results in [reapp.io](http://reapp.io) being updated.
   ```
-  hexo deploy
+  npm run deploy
   ```
 
 | To show documentation under this site navigation section... | ...edit these documentation files... | ...which generates these files |
