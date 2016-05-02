@@ -21,6 +21,7 @@
   },
   "scripts": {
     "generate": "(gulp && hexo generate)",
+    "server": "hexo server",
     "deploy": "hexo deploy"
   }
 }

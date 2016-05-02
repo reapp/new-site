@@ -43,7 +43,7 @@ npm install -g hexo-cli
 
 1. Run local Hexo server and test changes locally (http://localhost:4000).
   ```
-  hexo server
+  npm run server
   ```
 
 1. Deploy changes to the reapp.github.io repository which results in [reapp.io](http://reapp.io) being updated.
